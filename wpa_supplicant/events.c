@@ -1200,21 +1200,21 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
 		return 0;
 	}
 /* Os min_diff s eram 2,1,2,3,4,5 */
-	min_diff = 2;
+	min_diff = 10;
 	if (current_bss->level < 0) {
 
 		wpa_msg(wpa_s, MSG_INFO, "HELGA - ENTROU NO IF QUE SETA O MIN DIFF");
 		
 		if (current_bss->level < -85)
-			min_diff = 1;
+			min_diff = 10;
 		else if (current_bss->level < -80)
-			min_diff = 2;
+			min_diff = 10;
 		else if (current_bss->level < -75)
-			min_diff = 3;
+			min_diff = 10;
 		else if (current_bss->level < -70)
-			min_diff = 4;
+			min_diff = 10;
 		else
-			min_diff = 5;
+			min_diff = 10;
 	
 	}
 	if (abs(current_bss->level - selected->level) < min_diff) {
