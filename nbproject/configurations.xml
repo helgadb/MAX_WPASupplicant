@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="src">
+        <df name="ap">
+          <in>ap_config.c</in>
+          <in>ap_drv_ops.c</in>
+          <in>ap_list.c</in>
+          <in>ap_mlme.c</in>
+          <in>authsrv.c</in>
+          <in>beacon.c</in>
+          <in>ctrl_iface_ap.c</in>
+          <in>dfs.c</in>
+          <in>drv_callbacks.c</in>
+          <in>eap_user_db.c</in>
+          <in>gas_serv.c</in>
+          <in>hostapd.c</in>
+          <in>hw_features.c</in>
+          <in>ieee802_11.c</in>
+          <in>ieee802_11_auth.c</in>
+          <in>ieee802_11_ht.c</in>
+          <in>ieee802_11_shared.c</in>
+          <in>ieee802_1x.c</in>
+          <in>p2p_hostapd.c</in>
+          <in>peerkey_auth.c</in>
+          <in>pmksa_cache_auth.c</in>
+          <in>sta_info.c</in>
+          <in>tkip_countermeasures.c</in>
+          <in>utils.c</in>
+          <in>wmm.c</in>
+          <in>wpa_auth.c</in>
+          <in>wpa_auth_ft.c</in>
+          <in>wpa_auth_glue.c</in>
+          <in>wpa_auth_ie.c</in>
+          <in>wps_hostapd.c</in>
+        </df>
+        <df name="common">
+          <in>gas.c</in>
+          <in>ieee802_11_common.c</in>
+          <in>wpa_common.c</in>
+          <in>wpa_ctrl.c</in>
+        </df>
+        <df name="crypto">
+          <in>aes-cbc.c</in>
+          <in>aes-ctr.c</in>
+          <in>aes-eax.c</in>
+          <in>aes-encblock.c</in>
+          <in>aes-omac1.c</in>
+          <in>aes-unwrap.c</in>
+          <in>aes-wrap.c</in>
+          <in>crypto_openssl.c</in>
+          <in>dh_groups.c</in>
+          <in>fips_prf_openssl.c</in>
+          <in>md5.c</in>
+          <in>ms_funcs.c</in>
+          <in>random.c</in>
+          <in>sha1-prf.c</in>
+          <in>sha1-tlsprf.c</in>
+          <in>sha1-tprf.c</in>
+          <in>sha256-prf.c</in>
+          <in>tls_openssl.c</in>
+        </df>
+        <df name="drivers">
+          <in>driver_common.c</in>
+          <in>driver_nl80211.c</in>
+          <in>driver_none.c</in>
+          <in>driver_wext.c</in>
+          <in>driver_wired.c</in>
+          <in>drivers.c</in>
+          <in>linux_ioctl.c</in>
+          <in>netlink.c</in>
+          <in>rfkill.c</in>
+        </df>
+        <df name="eap_common">
+          <in>chap.c</in>
+          <in>eap_common.c</in>
+          <in>eap_fast_common.c</in>
+          <in>eap_gpsk_common.c</in>
+          <in>eap_ikev2_common.c</in>
+          <in>eap_pax_common.c</in>
+          <in>eap_peap_common.c</in>
+          <in>eap_psk_common.c</in>
+          <in>eap_pwd_common.c</in>
+          <in>eap_sake_common.c</in>
+          <in>eap_sim_common.c</in>
+          <in>eap_wsc_common.c</in>
+          <in>ikev2_common.c</in>
+        </df>
+        <df name="eap_peer">
+          <in>eap.c</in>
+          <in>eap_aka.c</in>
+          <in>eap_fast.c</in>
+          <in>eap_fast_pac.c</in>
+          <in>eap_gpsk.c</in>
+          <in>eap_gtc.c</in>
+          <in>eap_ikev2.c</in>
+          <in>eap_leap.c</in>
+          <in>eap_md5.c</in>
+          <in>eap_methods.c</in>
+          <in>eap_mschapv2.c</in>
+          <in>eap_otp.c</in>
+          <in>eap_pax.c</in>
+          <in>eap_peap.c</in>
+          <in>eap_psk.c</in>
+          <in>eap_pwd.c</in>
+          <in>eap_sake.c</in>
+          <in>eap_sim.c</in>
+          <in>eap_tls.c</in>
+          <in>eap_tls_common.c</in>
+          <in>eap_tnc.c</in>
+          <in>eap_ttls.c</in>
+          <in>eap_wsc.c</in>
+          <in>ikev2.c</in>
+          <in>mschapv2.c</in>
+          <in>tncc.c</in>
+        </df>
+        <df name="eap_server">
+          <in>eap_server.c</in>
+          <in>eap_server_identity.c</in>
+          <in>eap_server_methods.c</in>
+          <in>eap_server_wsc.c</in>
+        </df>
+        <df name="eapol_auth">
+          <in>eapol_auth_sm.c</in>
+        </df>
+        <df name="eapol_supp">
+          <in>eapol_supp_sm.c</in>
+        </df>
+        <df name="l2_packet">
+          <in>l2_packet_linux.c</in>
+        </df>
+        <df name="p2p">
+          <in>p2p.c</in>
+          <in>p2p_build.c</in>
+          <in>p2p_dev_disc.c</in>
+          <in>p2p_go_neg.c</in>
+          <in>p2p_group.c</in>
+          <in>p2p_invitation.c</in>
+          <in>p2p_parse.c</in>
+          <in>p2p_pd.c</in>
+          <in>p2p_sd.c</in>
+          <in>p2p_utils.c</in>
+        </df>
+        <df name="rsn_supp">
+          <in>peerkey.c</in>
+          <in>pmksa_cache.c</in>
+          <in>preauth.c</in>
+          <in>wpa.c</in>
+          <in>wpa_ft.c</in>
+          <in>wpa_ie.c</in>
+        </df>
+        <df name="utils">
+          <in>base64.c</in>
+          <in>bitfield.c</in>
+          <in>common.c</in>
+          <in>edit_readline.c</in>
+          <in>eloop.c</in>
+          <in>ip_addr.c</in>
+          <in>os_unix.c</in>
+          <in>pcsc_funcs.c</in>
+          <in>radiotap.c</in>
+          <in>uuid.c</in>
+          <in>wpa_debug.c</in>
+          <in>wpabuf.c</in>
+        </df>
+        <df name="wps">
+          <in>http_client.c</in>
+          <in>http_server.c</in>
+          <in>httpread.c</in>
+          <in>upnp_xml.c</in>
+          <in>wps.c</in>
+          <in>wps_attr_build.c</in>
+          <in>wps_attr_parse.c</in>
+          <in>wps_attr_process.c</in>
+          <in>wps_common.c</in>
+          <in>wps_dev_attr.c</in>
+          <in>wps_enrollee.c</in>
+          <in>wps_er.c</in>
+          <in>wps_er_ssdp.c</in>
+          <in>wps_registrar.c</in>
+          <in>wps_upnp.c</in>
+          <in>wps_upnp_ap.c</in>
+          <in>wps_upnp_event.c</in>
+          <in>wps_upnp_ssdp.c</in>
+          <in>wps_upnp_web.c</in>
+        </df>
+      </df>
+      <df name="wpa_supplicant">
+        <df name="dbus">
+          <in>dbus_common.c</in>
+          <in>dbus_dict_helpers.c</in>
+          <in>dbus_new.c</in>
+          <in>dbus_new_handlers.c</in>
+          <in>dbus_new_handlers_p2p.c</in>
+          <in>dbus_new_handlers_wps.c</in>
+          <in>dbus_new_helpers.c</in>
+          <in>dbus_new_introspect.c</in>
+          <in>dbus_old.c</in>
+          <in>dbus_old_handlers.c</in>
+          <in>dbus_old_handlers_wps.c</in>
+        </df>
+        <in>ap.c</in>
+        <in>bgscan.c</in>
+        <in>bgscan_simple.c</in>
+        <in>blacklist.c</in>
+        <in>bss.c</in>
+        <in>config.c</in>
+        <in>config_file.c</in>
+        <in>ctrl_iface.c</in>
+        <in>ctrl_iface_unix.c</in>
+        <in>eap_register.c</in>
+        <in>events.c</in>
+        <in>gas_query.c</in>
+        <in>ibss_rsn.c</in>
+        <in>interworking.c</in>
+        <in>main.c</in>
+        <in>notify.c</in>
+        <in>offchannel.c</in>
+        <in>p2p_supplicant.c</in>
+        <in>scan.c</in>
+        <in>sme.c</in>
+        <in>wpa_cli.c</in>
+        <in>wpa_passphrase.c</in>
+        <in>wpa_supplicant.c</in>
+        <in>wpas_glue.c</in>
+        <in>wps_supplicant.c</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>wpa_supplicant/Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>wpa_supplicant/Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-O2 -g"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>wpa_supplicant</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <incDir>
+              <pElem>src</pElem>
+              <pElem>src/utils</pElem>
+              <pElem>/usr/include/libnl3</pElem>
+              <pElem>/usr/include/PCSC</pElem>
+              <pElem>/usr/include/dbus-1.0</pElem>
+              <pElem>/usr/lib/i386-linux-gnu/dbus-1.0/include</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>ALL_DH_GROUPS</Elem>
+              <Elem>CONFIG_AP</Elem>
+              <Elem>CONFIG_BACKEND_FILE</Elem>
+              <Elem>CONFIG_BGSCAN</Elem>
+              <Elem>CONFIG_BGSCAN_SIMPLE</Elem>
+              <Elem>CONFIG_CTRL_IFACE</Elem>
+              <Elem>CONFIG_CTRL_IFACE_DBUS</Elem>
+              <Elem>CONFIG_CTRL_IFACE_DBUS_INTRO</Elem>
+              <Elem>CONFIG_CTRL_IFACE_DBUS_NEW</Elem>
+              <Elem>CONFIG_CTRL_IFACE_UNIX</Elem>
+              <Elem>CONFIG_DBUS</Elem>
+              <Elem>CONFIG_DEBUG_FILE</Elem>
+              <Elem>CONFIG_DEBUG_SYSLOG</Elem>
+              <Elem>CONFIG_DELAYED_MIC_ERROR_REPORT</Elem>
+              <Elem>CONFIG_DRIVER_NL80211</Elem>
+              <Elem>CONFIG_DRIVER_NONE</Elem>
+              <Elem>CONFIG_DRIVER_WEXT</Elem>
+              <Elem>CONFIG_DRIVER_WIRED</Elem>
+              <Elem>CONFIG_GAS</Elem>
+              <Elem>CONFIG_IBSS_RSN</Elem>
+              <Elem>CONFIG_IEEE80211N</Elem>
+              <Elem>CONFIG_IEEE80211R</Elem>
+              <Elem>CONFIG_IEEE80211W</Elem>
+              <Elem>CONFIG_INTERWORKING</Elem>
+              <Elem>CONFIG_LIBNL20</Elem>
+              <Elem>CONFIG_NO_ACCOUNTING</Elem>
+              <Elem>CONFIG_NO_RADIUS</Elem>
+              <Elem>CONFIG_NO_VLAN</Elem>
+              <Elem>CONFIG_OFFCHANNEL</Elem>
+              <Elem>CONFIG_P2P</Elem>
+              <Elem>CONFIG_PEERKEY</Elem>
+              <Elem>CONFIG_SHA256</Elem>
+              <Elem>CONFIG_SMARTCARD</Elem>
+              <Elem>CONFIG_SME</Elem>
+              <Elem>CONFIG_TLSV11</Elem>
+              <Elem>CONFIG_WIRELESS_EXTENSION</Elem>
+              <Elem>CONFIG_WPS</Elem>
+              <Elem>CONFIG_WPS2</Elem>
+              <Elem>CONFIG_WPS_ER</Elem>
+              <Elem>CONFIG_WPS_REG_DISABLE_OPEN</Elem>
+              <Elem>CONFIG_WPS_UPNP</Elem>
+              <Elem>DBUS_API_SUBJECT_TO_CHANGE</Elem>
+              <Elem>EAP_AKA</Elem>
+              <Elem>EAP_AKA_PRIME</Elem>
+              <Elem>EAP_FAST</Elem>
+              <Elem>EAP_GPSK</Elem>
+              <Elem>EAP_GPSK_SHA256</Elem>
+              <Elem>EAP_GTC</Elem>
+              <Elem>EAP_IKEV2</Elem>
+              <Elem>EAP_LEAP</Elem>
+              <Elem>EAP_MD5</Elem>
+              <Elem>EAP_MSCHAPv2</Elem>
+              <Elem>EAP_OTP</Elem>
+              <Elem>EAP_PAX</Elem>
+              <Elem>EAP_PEAP</Elem>
+              <Elem>EAP_PSK</Elem>
+              <Elem>EAP_PWD</Elem>
+              <Elem>EAP_SAKE</Elem>
+              <Elem>EAP_SERVER</Elem>
+              <Elem>EAP_SERVER_IDENTITY</Elem>
+              <Elem>EAP_SERVER_WSC</Elem>
+              <Elem>EAP_SIM</Elem>
+              <Elem>EAP_TLS</Elem>
+              <Elem>EAP_TLS_OPENSSL</Elem>
+              <Elem>EAP_TNC</Elem>
+              <Elem>EAP_TTLS</Elem>
+              <Elem>EAP_WSC</Elem>
+              <Elem>IEEE8021X_EAPOL</Elem>
+              <Elem>LOG_HOSTAPD=LOG_DAEMON</Elem>
+              <Elem>NEED_AP_MLME</Elem>
+              <Elem>PCSC_FUNCS</Elem>
+              <Elem>PKCS12_FUNCS</Elem>
+            </preprocessorList>
+          </cTool>
+        </makeTool>
+      </makefileType>
+      <folder path="0/src">
+        <cTool>
+          <incDir>
+            <pElem>wpa_supplicant</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="0/wpa_supplicant/dbus">
+        <cTool>
+          <incDir>
+            <pElem>wpa_supplicant</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <item path="src/ap/ap_config.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ap_drv_ops.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ap_list.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ap_mlme.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/authsrv.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/beacon.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ctrl_iface_ap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/dfs.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/drv_callbacks.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/eap_user_db.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/gas_serv.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/hostapd.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/hw_features.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ieee802_11.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ieee802_11_auth.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ieee802_11_ht.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ieee802_11_shared.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/ieee802_1x.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/p2p_hostapd.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/peerkey_auth.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/pmksa_cache_auth.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/sta_info.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/tkip_countermeasures.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/utils.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/wmm.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/wpa_auth.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/wpa_auth_ft.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/wpa_auth_glue.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/wpa_auth_ie.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/ap/wps_hostapd.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/common/gas.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/common/ieee802_11_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/common/wpa_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/common/wpa_ctrl.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-cbc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-ctr.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-eax.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-encblock.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-omac1.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-unwrap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/aes-wrap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/crypto_openssl.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/dh_groups.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/fips_prf_openssl.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/md5.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/ms_funcs.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/random.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/sha1-prf.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/sha1-tlsprf.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/sha1-tprf.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/sha256-prf.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/crypto/tls_openssl.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/driver_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/driver_nl80211.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/driver_none.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/driver_wext.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/driver_wired.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/drivers.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/linux_ioctl.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/netlink.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/drivers/rfkill.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/chap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_fast_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_gpsk_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_ikev2_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_pax_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_peap_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_psk_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_pwd_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_sake_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_sim_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/eap_wsc_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_common/ikev2_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_aka.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_fast.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_fast_pac.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_gpsk.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_gtc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_ikev2.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_leap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_md5.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_methods.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_mschapv2.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_otp.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_pax.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_peap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_psk.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_pwd.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_sake.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_sim.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_tls.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_tls_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_tnc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_ttls.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/eap_wsc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/ikev2.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/mschapv2.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_peer/tncc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_server/eap_server.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_server/eap_server_identity.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_server/eap_server_methods.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eap_server/eap_server_wsc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eapol_auth/eapol_auth_sm.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/eapol_supp/eapol_supp_sm.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/l2_packet/l2_packet_linux.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_build.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_dev_disc.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_go_neg.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_group.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_invitation.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_parse.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_pd.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_sd.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/p2p/p2p_utils.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/rsn_supp/peerkey.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/rsn_supp/pmksa_cache.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/rsn_supp/preauth.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/rsn_supp/wpa.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/rsn_supp/wpa_ft.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/rsn_supp/wpa_ie.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/base64.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/bitfield.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/edit_readline.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/eloop.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/ip_addr.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/os_unix.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/pcsc_funcs.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/radiotap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/uuid.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/wpa_debug.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/utils/wpabuf.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/http_client.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/http_server.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/httpread.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/upnp_xml.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_attr_build.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_attr_parse.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_attr_process.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_dev_attr.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_enrollee.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_er.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_er_ssdp.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_registrar.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_upnp.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_upnp_ap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_upnp_event.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_upnp_ssdp.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="src/wps/wps_upnp_web.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/ap.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/bgscan.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/bgscan_simple.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/blacklist.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/bss.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/config.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/config_file.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/ctrl_iface.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/ctrl_iface_unix.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_common.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_dict_helpers.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_new.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_new_handlers.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_new_handlers_p2p.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_new_handlers_wps.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_new_helpers.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_new_introspect.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_old.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_old_handlers.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/dbus/dbus_old_handlers_wps.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/eap_register.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/events.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/gas_query.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/ibss_rsn.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/interworking.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/main.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/notify.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/offchannel.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/p2p_supplicant.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/scan.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/sme.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/wpa_cli.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/wpa_passphrase.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/wpa_supplicant.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/wpas_glue.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="wpa_supplicant/wps_supplicant.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

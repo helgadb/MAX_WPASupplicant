@@ -17,6 +17,7 @@
 #include "notify.h"
 #include "scan.h"
 #include "bss.h"
+#include <math.h> 
 
 
 /**
@@ -258,6 +259,49 @@ static void wpa_bss_copy_res(struct wpa_bss *dst, struct wpa_scan_res *src,
 	calculate_update_time(fetch_time, src->age, &dst->last_update);
 }
 
+double dbmtomw(double level)
+{
+    double pmw = pow(10,(level/10));
+    return pmw;       
+}
+
+double mwtodbm(double power)
+{
+    double dbm = 10 * log10(power);
+    return dbm;       
+}
+
+static void wpa_bss_merge_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, struct wpa_scan_res *src,
+			     struct os_reltime *fetch_time)
+{
+        /* aqui o dst também contém as informações antigas que serão utilizadas no merge. Src contém as info novas*/
+        /* o level deve ser em dbm. Vou converter para linear para fazer a média movente*/
+	
+        double alfa = 0.8;
+        double newlevel = mwtodbm(alfa * dbmtomw(dst->level) + ((1 - alfa) * dbmtomw(src->level)) );
+        double newnoise = mwtodbm(alfa * dbmtomw(dst->noise) + ((1 - alfa) * dbmtomw(src->noise)) );
+        double newqual = ( alfa * dst->qual + (1 - alfa) * src->qual );
+        
+        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_merge_res BSS: Merge new id %u BSSID " MACSTR
+         " old signal level: %d ; scan signal level: %d ; new signal level: %f ",
+         dst->id, MAC2STR(dst->bssid), dst->level, src->level, newlevel);
+
+        
+	dst->flags = src->flags;
+	os_memcpy(dst->bssid, src->bssid, ETH_ALEN);
+	dst->freq = src->freq;
+	dst->beacon_int = src->beacon_int;
+	dst->caps = src->caps;
+	/*dst->qual = src->qual;*/
+        dst->qual = (int)round(newqual); 
+	/*dst->noise = src->noise;*/
+        dst->noise = (int)round(newnoise);
+        /*dst->level = src->level;*/
+        dst->level = (int)round(newlevel);
+	dst->tsf = src->tsf;
+
+	calculate_update_time(fetch_time, src->age, &dst->last_update);
+}
 
 static int wpa_bss_known(struct wpa_supplicant *wpa_s, struct wpa_bss *bss)
 {
@@ -357,7 +401,12 @@ static struct wpa_bss * wpa_bss_add(struct wpa_supplicant *wpa_s,
 	wpa_dbg(wpa_s, MSG_DEBUG, "BSS: Add new id %u BSSID " MACSTR
 		" SSID '%s'",
 		bss->id, MAC2STR(bss->bssid), wpa_ssid_txt(ssid, ssid_len));
-	wpas_notify_bss_added(wpa_s, bss->bssid, bss->id);
+        
+        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_add BSS: Add new id %u BSSID " MACSTR
+		" SSID '%s'",
+                bss->id, MAC2STR(bss->bssid), wpa_ssid_txt(ssid, ssid_len));
+	
+        wpas_notify_bss_added(wpa_s, bss->bssid, bss->id);
 	return bss;
 }
 
@@ -499,8 +548,14 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 	changes = wpa_bss_compare_res(bss, res);
 	bss->scan_miss_count = 0;
 	bss->last_update_idx = wpa_s->bss_update_idx;
-	wpa_bss_copy_res(bss, res, fetch_time);
+	/* aqui a informação do resultado do scan (res) é copiada para a posição indicada pelo ponteiro bss (que é a entrada antiga da bss na lista de BSSs do wpa_s)*/
+        /* Da forma como está sendo feita a sobreposição das informações, a informação de sinal está sendo sobrescrita*/
+        /* vou criar uma função chamda wpa_bss_merge_res que irá fazer um merge do resultado antigo com o novo*/
+        /* somete algumas informações são atualizadas. O tamanho dos campos, por exemplo, não são atualizados.*/
+        /*wpa_bss_copy_res(bss, res, fetch_time);*/
+        wpa_bss_merge_res(wpa_s, bss, res, fetch_time);
 	/* Move the entry to the end of the list */
+        /* retira o item da lista, mas sem desalocar a memoria*/
 	dl_list_del(&bss->list);
 #ifdef CONFIG_P2P
 	if (wpa_bss_get_vendor_ie(bss, P2P_IE_VENDOR_TYPE) &&
@@ -520,13 +575,17 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 #endif /* CONFIG_P2P */
 	if (bss->ie_len + bss->beacon_ie_len >=
 	    res->ie_len + res->beacon_ie_len) {
+            /* se os tamanhos dos campos IE (information element) do resultado novo são menores do que o antigo, copia o resultado do scan para BSS*/
 		os_memcpy(bss + 1, res + 1, res->ie_len + res->beacon_ie_len);
 		bss->ie_len = res->ie_len;
 		bss->beacon_ie_len = res->beacon_ie_len;
 	} else {
+              /* se forem maiores, cria um novo bss (nbss) */
 		struct wpa_bss *nbss;
+                /* pega o id do elemento anterior para reinserir o bss depois*/
 		struct dl_list *prev = bss->list_id.prev;
 		dl_list_del(&bss->list_id);
+                /* função para mudar o tamanho do bloco de memória*/
 		nbss = os_realloc(bss, sizeof(*bss) + res->ie_len +
 				  res->beacon_ie_len);
 		if (nbss) {
@@ -540,19 +599,26 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 			if (wpa_s->current_bss == bss)
 				wpa_s->current_bss = nbss;
 			bss = nbss;
+                        /* copia (somente, eu acho) os campos IE do resultado do scan para o bss, que agora aponta para o mesmo local de nbss*/
 			os_memcpy(bss + 1, res + 1,
 				  res->ie_len + res->beacon_ie_len);
 			bss->ie_len = res->ie_len;
 			bss->beacon_ie_len = res->beacon_ie_len;
 		}
+                /* insere o bss id após o prev de volta para o local antigo */
 		dl_list_add(prev, &bss->list_id);
 	}
 	if (changes & WPA_BSS_IES_CHANGED_FLAG)
 		wpa_bss_set_hessid(bss);
+        /* adiciona o BSS no final da lista */
 	dl_list_add_tail(&wpa_s->bss, &bss->list);
 
 	notify_bss_changes(wpa_s, changes, bss);
 
+        wpa_msg(wpa_s, MSG_INFO, "HELGA fim da fc wpa_bss_update BSS: Merged new id %u BSSID " MACSTR
+         " new signal level: %d ",
+         bss->id, MAC2STR(bss->bssid), bss->level);        
+        
 	return bss;
 }
 
@@ -643,7 +709,9 @@ void wpa_bss_update_scan_res(struct wpa_supplicant *wpa_s,
 	if (bss == NULL)
 		bss = wpa_bss_add(wpa_s, ssid + 2, ssid[1], res, fetch_time);
 	else {
-		bss = wpa_bss_update(wpa_s, bss, res, fetch_time);
+		/* aqui as informações da BSS que já estava na lista de BSSs wpa_s->bss são atualizadas */
+                /* O ponteiro para o elemento da lista (bss) é passado para a função de update. Este ponteiro deve ser utilizado para obter informações antigas sobre a bss*/
+                bss = wpa_bss_update(wpa_s, bss, res, fetch_time);
 		if (wpa_s->last_scan_res) {
 			unsigned int i;
 			for (i = 0; i < wpa_s->last_scan_res_used; i++) {

@@ -1,3 +1,5 @@
+LIBS += -lm
+
 ifndef CC
 CC=gcc
 endif
