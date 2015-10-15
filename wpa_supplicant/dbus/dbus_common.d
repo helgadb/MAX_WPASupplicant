@@ -1,6 +1,6 @@
 dbus/dbus_common.o: dbus/dbus_common.c \
- /home/helga/Documents/wpa-2.1/src/utils/includes.h \
- /home/helga/Documents/wpa-2.1/src/utils/build_config.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/includes.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/build_config.h \
  /usr/include/dbus-1.0/dbus/dbus.h \
  /usr/lib/i386-linux-gnu/dbus-1.0/include/dbus/dbus-arch-deps.h \
  /usr/include/dbus-1.0/dbus/dbus-macros.h \
@@ -19,16 +19,17 @@ dbus/dbus_common.o: dbus/dbus_common.c \
  /usr/include/dbus-1.0/dbus/dbus-signature.h \
  /usr/include/dbus-1.0/dbus/dbus-syntax.h \
  /usr/include/dbus-1.0/dbus/dbus-threads.h \
- /home/helga/Documents/wpa-2.1/src/utils/common.h \
- /home/helga/Documents/wpa-2.1/src/utils/os.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpa_debug.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpabuf.h \
- /home/helga/Documents/wpa-2.1/src/utils/eloop.h dbus/dbus_common.h \
- dbus/dbus_common_i.h dbus/dbus_new.h \
- /home/helga/Documents/wpa-2.1/src/common/defs.h \
- /home/helga/Documents/wpa-2.1/src/p2p/p2p.h \
- /home/helga/Documents/wpa-2.1/src/wps/wps_defs.h dbus/dbus_old.h \
- dbus/../wpa_supplicant_i.h \
- /home/helga/Documents/wpa-2.1/src/utils/list.h \
- /home/helga/Documents/wpa-2.1/src/common/sae.h dbus/../config_ssid.h \
- /home/helga/Documents/wpa-2.1/src/eap_peer/eap_config.h
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/common.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/os.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpa_debug.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpabuf.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/eloop.h \
+ dbus/dbus_common.h dbus/dbus_common_i.h dbus/dbus_new.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/common/defs.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/p2p/p2p.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/wps/wps_defs.h \
+ dbus/dbus_old.h dbus/../wpa_supplicant_i.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/list.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/common/sae.h \
+ dbus/../config_ssid.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/eap_peer/eap_config.h

@@ -1,6 +1,6 @@
 dbus/dbus_dict_helpers.o: dbus/dbus_dict_helpers.c \
- /home/helga/Documents/wpa-2.1/src/utils/includes.h \
- /home/helga/Documents/wpa-2.1/src/utils/build_config.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/includes.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/build_config.h \
  /usr/include/dbus-1.0/dbus/dbus.h \
  /usr/lib/i386-linux-gnu/dbus-1.0/include/dbus/dbus-arch-deps.h \
  /usr/include/dbus-1.0/dbus/dbus-macros.h \
@@ -19,9 +19,9 @@ dbus/dbus_dict_helpers.o: dbus/dbus_dict_helpers.c \
  /usr/include/dbus-1.0/dbus/dbus-signature.h \
  /usr/include/dbus-1.0/dbus/dbus-syntax.h \
  /usr/include/dbus-1.0/dbus/dbus-threads.h \
- /home/helga/Documents/wpa-2.1/src/utils/common.h \
- /home/helga/Documents/wpa-2.1/src/utils/os.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpa_debug.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpabuf.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpabuf.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/common.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/os.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpa_debug.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpabuf.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpabuf.h \
  dbus/dbus_dict_helpers.h

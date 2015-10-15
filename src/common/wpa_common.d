@@ -1,14 +1,14 @@
 ../src/common/wpa_common.o: ../src/common/wpa_common.c \
- /home/helga/Documents/wpa-2.1/src/utils/includes.h \
- /home/helga/Documents/wpa-2.1/src/utils/build_config.h \
- /home/helga/Documents/wpa-2.1/src/utils/common.h \
- /home/helga/Documents/wpa-2.1/src/utils/os.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpa_debug.h \
- /home/helga/Documents/wpa-2.1/src/utils/wpabuf.h \
- /home/helga/Documents/wpa-2.1/src/crypto/md5.h \
- /home/helga/Documents/wpa-2.1/src/crypto/sha1.h \
- /home/helga/Documents/wpa-2.1/src/crypto/sha256.h \
- /home/helga/Documents/wpa-2.1/src/crypto/aes_wrap.h \
- /home/helga/Documents/wpa-2.1/src/crypto/crypto.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/includes.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/build_config.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/common.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/os.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpa_debug.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpabuf.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/crypto/md5.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/crypto/sha1.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/crypto/sha256.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/crypto/aes_wrap.h \
+ /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/crypto/crypto.h \
  ../src/common/ieee802_11_defs.h ../src/common/defs.h \
  ../src/common/wpa_common.h
