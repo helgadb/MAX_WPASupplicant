@@ -277,7 +277,7 @@ static void wpa_bss_merge_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst,
         /* aqui o dst também contém as informações antigas que serão utilizadas no merge. Src contém as info novas*/
         /* o level deve ser em dbm. Vou converter para linear para fazer a média movente*/
 	
-        double alfa = 0.8;
+        double alfa = 0.4;
         double newlevel = mwtodbm(alfa * dbmtomw(dst->level) + ((1 - alfa) * dbmtomw(src->level)) );
         double newnoise = mwtodbm(alfa * dbmtomw(dst->noise) + ((1 - alfa) * dbmtomw(src->noise)) );
         double newqual = ( alfa * dst->qual + (1 - alfa) * src->qual );
