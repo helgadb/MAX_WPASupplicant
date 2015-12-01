@@ -10,8 +10,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/events.c</file>
-            <file>file:/home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/bss.c</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/events.c</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/scan.c</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/config.c</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/bss.c</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/drivers/driver.h</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/interworking.c</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/config.h</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/config_ssid.h</file>
+            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/wpa_supplicant/ctrl_iface.c</file>
         </group>
     </open-files>
 </project-private>
