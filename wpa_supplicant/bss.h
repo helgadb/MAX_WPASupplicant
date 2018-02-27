@@ -131,4 +131,16 @@ int wpa_bss_get_bit_rates(const struct wpa_bss *bss, u8 **rates);
 struct wpa_bss_anqp * wpa_bss_anqp_alloc(void);
 int wpa_bss_anqp_unshare_alloc(struct wpa_bss *bss);
 
+struct circqueue {
+   int rear;
+   int front;
+   int capacity;
+   int *arraySignal;
+   int *arrayNoise;
+   int *arrayQual;
+};
+struct circqueue *q(int size);
+int queuesize(struct circqueue *q);
+void enqueue(struct circqueue *q,int x, int y, int z);
+
 #endif /* BSS_H */

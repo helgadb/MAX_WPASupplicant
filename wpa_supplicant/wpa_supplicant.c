@@ -3774,6 +3774,19 @@ struct wpa_global * wpa_supplicant_init(struct wpa_params *params)
 	global = os_zalloc(sizeof(*global));
 	if (global == NULL)
 		return NULL;
+        global->Ws=5;
+        global->alpha=0.1;
+        global->hm=15;
+        global->alg_handoff = 1;
+        if (global->alg_handoff == 3 || global->alg_handoff == 4 || global->alg_handoff == 5) {
+            global->win = q( global->Ws );
+            if ( global->win == NULL) {
+                wpa_supplicant_deinit(global);
+		return NULL;
+            }     
+        }
+        else global->win = NULL;
+                
 	dl_list_init(&global->p2p_srv_bonjour);
 	dl_list_init(&global->p2p_srv_upnp);
 	global->params.daemonize = params->daemonize;
@@ -3858,7 +3871,7 @@ struct wpa_global * wpa_supplicant_init(struct wpa_params *params)
 int wpa_supplicant_run(struct wpa_global *global)
 {
 	struct wpa_supplicant *wpa_s;
-
+       
 	if (global->params.daemonize &&
 	    wpa_supplicant_daemon(global->params.pid_file))
 		return -1;
@@ -3933,6 +3946,12 @@ void wpa_supplicant_deinit(struct wpa_global *global)
 	os_free(global->p2p_disallow_freq.range);
 	os_free(global->p2p_go_avoid_freq.range);
 	os_free(global->add_psk);
+
+        // liberando memória da janela utilizada pelos algoritmos
+        os_free(global->win->arraySignal);
+        os_free(global->win->arrayQual);
+        os_free(global->win->arrayNoise);
+        os_free(global->win);
 
 	os_free(global);
 	wpa_debug_close_syslog();

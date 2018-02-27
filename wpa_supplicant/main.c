@@ -334,7 +334,7 @@ out:
 	wpa_supplicant_fd_workaround(0);
 	os_free(ifaces);
 	os_free(params.pid_file);
-
+               
 	os_program_deinit();
 
 	return exitcode;

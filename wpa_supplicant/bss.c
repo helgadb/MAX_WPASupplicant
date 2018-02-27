@@ -271,20 +271,137 @@ double mwtodbm(double power)
     return dbm;       
 }
 
-static void wpa_bss_merge_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, struct wpa_scan_res *src,
+struct circqueue *q(int size) {
+   struct circqueue *q=os_malloc(sizeof(struct circqueue));
+   if(!q)return NULL;
+   q->capacity=size;
+   q->rear=-1;
+   q->front=-1;
+   q->arraySignal=os_malloc(q->capacity*sizeof(int));
+   if(!q->arraySignal)return NULL;
+   q->arrayNoise=os_malloc(q->capacity*sizeof(int));
+   if(!q->arrayNoise)return NULL;
+   q->arrayQual=os_malloc(q->capacity*sizeof(int));
+   if(!q->arrayQual)return NULL;
+   int i;
+   for (i=0; i < q->capacity ;i++) {
+       q->arraySignal[i]=999;
+       q->arrayNoise[i]=999;
+       q->arrayQual[i]=-1;
+   }
+   return q;
+}
+
+int queuesize(struct circqueue *q) {
+   int c=0;
+   int i;
+   for (i=0; i < q->capacity ;i++) {
+	if ( q->arraySignal[i] != 999 ) c=c+1;
+   }
+   return c;
+}
+
+void enqueue(struct circqueue *q,int x, int y, int z) {
+	q->rear=(q->rear+1)%q->capacity;
+	q->arraySignal[q->rear]=x;
+        q->arrayNoise[q->rear]=y;
+        q->arrayQual[q->rear]=z;
+	int s=queuesize(q);
+	if ( s >= q->capacity ) q->front = (q->rear+1)%(q->capacity);
+	else q->front = 0;
+}
+
+static void wpa_bss_MAX_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, struct wpa_scan_res *src,
+			     struct os_reltime *fetch_time)
+{
+    enqueue(wpa_s->global->win, src->level, src->noise, src->qual);
+    int s=queuesize(wpa_s->global->win);
+    int maxIdx=-1;
+    int maxSignal=-999;
+    int i;
+    for (i=0; i < s; i++ ) {
+        if ( wpa_s->global->win->arraySignal[i] > maxSignal) {
+            maxSignal=wpa_s->global->win->arraySignal[i];
+            maxIdx=i;            
+        }
+    }   
+    wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_MAX_res BSS: new id %u BSSID " MACSTR
+     " old signal level: %d ; scan signal level: %d ; new signal level: %d ",
+     dst->id, MAC2STR(dst->bssid), dst->level, src->level, wpa_s->global->win->arraySignal[maxIdx]);
+
+
+    dst->flags = src->flags;
+    os_memcpy(dst->bssid, src->bssid, ETH_ALEN);
+    dst->freq = src->freq;
+    dst->beacon_int = src->beacon_int;
+    dst->caps = src->caps;
+    /*dst->qual = src->qual;*/
+    dst->qual = wpa_s->global->win->arrayQual[maxIdx]; 
+    /*dst->noise = src->noise;*/
+    dst->noise = wpa_s->global->win->arrayNoise[maxIdx];
+    /*dst->level = src->level;*/
+    dst->level = wpa_s->global->win->arraySignal[maxIdx];
+    dst->tsf = src->tsf;
+
+    calculate_update_time(fetch_time, src->age, &dst->last_update);
+}
+
+static void wpa_bss_EWMA_MAX_res (struct wpa_supplicant *wpa_s, struct wpa_bss *dst, struct wpa_scan_res *src,
+			     struct os_reltime *fetch_time)
+{
+    // TODO: O sinal antigo deve ser pego da janela (wpa_s->global->win->arraySignal[lidx]) e não de dst->level
+    double alfa= wpa_s->global->alpha;
+    int lidx=wpa_s->global->win->rear;    
+    double newlevel = mwtodbm(alfa * dbmtomw(wpa_s->global->win->arraySignal[lidx]) + ((1 - alfa) * dbmtomw(src->level)) );
+    double newnoise = mwtodbm(alfa * dbmtomw(wpa_s->global->win->arrayNoise[lidx]) + ((1 - alfa) * dbmtomw(src->noise)) );
+    double newqual = ( alfa * wpa_s->global->win->arrayQual[lidx] + (1 - alfa) * src->qual );
+    
+    enqueue(wpa_s->global->win, (int)round(newlevel), (int)round(newnoise), (int)round(newqual));
+    int s=queuesize(wpa_s->global->win);
+    int maxIdx=-1;
+    int maxSignal=-999;
+    int i;
+    for (i=0; i < s; i++ ) {
+        if ( wpa_s->global->win->arraySignal[i] > maxSignal) {
+            maxSignal=wpa_s->global->win->arraySignal[i];
+            maxIdx=i;            
+        }
+    }  
+    
+    wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_MAX_res BSS: new id %u BSSID " MACSTR
+    "Ws: %d; Alpha: %f; Old signal level: %d ; Scan signal level: %d ; EWMA old level: %d; EWMA new level: %d ; New signal level: %d ",
+    dst->id, MAC2STR(dst->bssid), wpa_s->global->win->capacity, alfa, dst->level, src->level,wpa_s->global->win->arraySignal[lidx],(int)round(newlevel),wpa_s->global->win->arraySignal[maxIdx]);
+
+
+    dst->flags = src->flags;
+    os_memcpy(dst->bssid, src->bssid, ETH_ALEN);
+    dst->freq = src->freq;
+    dst->beacon_int = src->beacon_int;
+    dst->caps = src->caps;
+    /*dst->qual = src->qual;*/
+    dst->qual = wpa_s->global->win->arrayQual[maxIdx]; 
+    /*dst->noise = src->noise;*/
+    dst->noise = wpa_s->global->win->arrayNoise[maxIdx];
+    /*dst->level = src->level;*/
+    dst->level = wpa_s->global->win->arraySignal[maxIdx];
+    dst->tsf = src->tsf;
+
+    calculate_update_time(fetch_time, src->age, &dst->last_update);
+}
+
+static void wpa_bss_EWMA_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, struct wpa_scan_res *src,
 			     struct os_reltime *fetch_time)
 {
         /* aqui o dst também contém as informações antigas que serão utilizadas no merge. Src contém as info novas*/
         /* o level deve ser em dbm. Vou converter para linear para fazer a média movente*/
-	
-        double alfa = 0.2;
+        double alfa= wpa_s->global->alpha;
         double newlevel = mwtodbm(alfa * dbmtomw(dst->level) + ((1 - alfa) * dbmtomw(src->level)) );
         double newnoise = mwtodbm(alfa * dbmtomw(dst->noise) + ((1 - alfa) * dbmtomw(src->noise)) );
         double newqual = ( alfa * dst->qual + (1 - alfa) * src->qual );
         
-        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_merge_res BSS: Merge new id %u BSSID " MACSTR
-         " old signal level: %d ; scan signal level: %d ; new signal level: %f ",
-         dst->id, MAC2STR(dst->bssid), dst->level, src->level, newlevel);
+        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_res BSS: new id %u BSSID " MACSTR
+         " old signal level: %d ; scan signal level: %d ; new signal level: %f; alpha: %f ",
+         dst->id, MAC2STR(dst->bssid), dst->level, src->level, newlevel, alfa);
 
         
 	dst->flags = src->flags;
@@ -544,16 +661,61 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 	       struct wpa_scan_res *res, struct os_reltime *fetch_time)
 {
 	u32 changes;
-
+         
 	changes = wpa_bss_compare_res(bss, res);
 	bss->scan_miss_count = 0;
 	bss->last_update_idx = wpa_s->bss_update_idx;
+        
 	/* aqui a informação do resultado do scan (res) é copiada para a posição indicada pelo ponteiro bss (que é a entrada antiga da bss na lista de BSSs do wpa_s)*/
         /* Da forma como está sendo feita a sobreposição das informações, a informação de sinal está sendo sobrescrita*/
-        /* vou criar uma função chamda wpa_bss_merge_res que irá fazer um merge do resultado antigo com o novo*/
+        /* vou criar uma função chamda wpa_bss_EWMA_res que irá fazer um merge do resultado antigo com o novo*/
         /* somete algumas informações são atualizadas. O tamanho dos campos, por exemplo, não são atualizados.*/
-        /*wpa_bss_copy_res(bss, res, fetch_time);*/
-        wpa_bss_merge_res(wpa_s, bss, res, fetch_time);
+       
+        /* Algoritmos de handoff 
+         * 1 - WPA 
+         * 2 - EWMA
+         * 3 - MAX
+         * 4 - WPA_MAX
+         * 5 - EWMA_MAX 
+         * 6 - WPA_EWMA
+         * 7 - HM
+         */
+        
+        switch ( wpa_s->global->alg_handoff ) {
+            case 1 : // WPA
+                 wpa_bss_copy_res(bss, res, fetch_time);           
+            break;
+            
+            case 2 : // EWMA
+                wpa_bss_EWMA_res(wpa_s, bss, res, fetch_time);      
+            break;
+            
+            case 3 : // MAX                    
+                wpa_bss_MAX_res(wpa_s, bss, res, fetch_time);                 
+            break;  
+            
+            case 4 : // WPA_MAX
+                wpa_bss_MAX_res(wpa_s, bss, res, fetch_time);       
+            break;
+            
+            case 5 : // EWMA_MAX
+                wpa_bss_EWMA_MAX_res(wpa_s, bss, res, fetch_time);       
+            break;        
+            
+            case 6 : // WPA_EWMA
+                wpa_bss_EWMA_res(wpa_s, bss, res, fetch_time);      
+            break;
+            
+            case 7 : // HM
+                wpa_bss_copy_res(bss, res, fetch_time);      
+            break;
+            
+            default :
+                wpa_bss_copy_res(bss, res, fetch_time);
+           
+        }
+        
+        
 	/* Move the entry to the end of the list */
         /* retira o item da lista, mas sem desalocar a memoria*/
 	dl_list_del(&bss->list);
