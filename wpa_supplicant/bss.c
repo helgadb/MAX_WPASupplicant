@@ -246,6 +246,11 @@ static void calculate_update_time(const struct os_reltime *fetch_time,
 static void wpa_bss_copy_res(struct wpa_bss *dst, struct wpa_scan_res *src,
 			     struct os_reltime *fetch_time)
 {
+    
+        wpa_printf(MSG_INFO, "HELGA wpa_bss_copy_res: id %u BSSID %s " MACSTR
+        " old signal level: %d ; new signal level: %d ",
+        dst->id, dst->ssid, MAC2STR(dst->bssid), dst->level ,src->level);   
+        
 	dst->flags = src->flags;
 	os_memcpy(dst->bssid, src->bssid, ETH_ALEN);
 	dst->freq = src->freq;
@@ -325,9 +330,9 @@ static void wpa_bss_MAX_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, s
             maxIdx=i;            
         }
     }   
-    wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_MAX_res BSS: new id %u BSSID " MACSTR
-     " old signal level: %d ; scan signal level: %d ; new signal level: %d ",
-     dst->id, MAC2STR(dst->bssid), dst->level, src->level, wpa_s->global->win->arraySignal[maxIdx]);
+    wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_MAX_res : id %u BSSID %s " MACSTR
+     " old signal level: %d ; scan signal level: %d ; new signal level: %d ; Ws = %d",
+     dst->id,dst->ssid,MAC2STR(dst->bssid), dst->level, src->level, wpa_s->global->win->arraySignal[maxIdx],  wpa_s->global->Ws);
 
 
     dst->flags = src->flags;
@@ -335,11 +340,8 @@ static void wpa_bss_MAX_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, s
     dst->freq = src->freq;
     dst->beacon_int = src->beacon_int;
     dst->caps = src->caps;
-    /*dst->qual = src->qual;*/
     dst->qual = wpa_s->global->win->arrayQual[maxIdx]; 
-    /*dst->noise = src->noise;*/
     dst->noise = wpa_s->global->win->arrayNoise[maxIdx];
-    /*dst->level = src->level;*/
     dst->level = wpa_s->global->win->arraySignal[maxIdx];
     dst->tsf = src->tsf;
 
@@ -368,9 +370,9 @@ static void wpa_bss_EWMA_MAX_res (struct wpa_supplicant *wpa_s, struct wpa_bss *
         }
     }  
     
-    wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_MAX_res BSS: new id %u BSSID " MACSTR
-    "Ws: %d; Alpha: %f; Old signal level: %d ; Scan signal level: %d ; EWMA old level: %d; EWMA new level: %d ; New signal level: %d ",
-    dst->id, MAC2STR(dst->bssid), wpa_s->global->win->capacity, alfa, dst->level, src->level,wpa_s->global->win->arraySignal[lidx],(int)round(newlevel),wpa_s->global->win->arraySignal[maxIdx]);
+    wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_MAX_res : id %u BSSID %s " MACSTR
+    " old signal level: %d ; scan signal level: %d ; EWMA old signal level: %d ; EWMA new signal level: %d ; new MAX signal level: %d ; Ws: %d ; Alpha: %f ",
+    dst->id, dst->ssid , MAC2STR(dst->bssid),  dst->level, src->level,wpa_s->global->win->arraySignal[lidx],(int)round(newlevel),wpa_s->global->win->arraySignal[maxIdx], wpa_s->global->Ws, alfa);
 
 
     dst->flags = src->flags;
@@ -378,11 +380,8 @@ static void wpa_bss_EWMA_MAX_res (struct wpa_supplicant *wpa_s, struct wpa_bss *
     dst->freq = src->freq;
     dst->beacon_int = src->beacon_int;
     dst->caps = src->caps;
-    /*dst->qual = src->qual;*/
     dst->qual = wpa_s->global->win->arrayQual[maxIdx]; 
-    /*dst->noise = src->noise;*/
     dst->noise = wpa_s->global->win->arrayNoise[maxIdx];
-    /*dst->level = src->level;*/
     dst->level = wpa_s->global->win->arraySignal[maxIdx];
     dst->tsf = src->tsf;
 
@@ -399,9 +398,9 @@ static void wpa_bss_EWMA_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, 
         double newnoise = mwtodbm(alfa * dbmtomw(dst->noise) + ((1 - alfa) * dbmtomw(src->noise)) );
         double newqual = ( alfa * dst->qual + (1 - alfa) * src->qual );
         
-        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_res BSS: new id %u BSSID " MACSTR
-         " old signal level: %d ; scan signal level: %d ; new signal level: %f; alpha: %f ",
-         dst->id, MAC2STR(dst->bssid), dst->level, src->level, newlevel, alfa);
+        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_res : id %u BSSID %s " MACSTR
+         " old signal level: %d ; scan signal level: %d ; new signal level: %d ; alpha: %f ",
+         dst->id, dst->ssid ,MAC2STR(dst->bssid), dst->level, src->level, (int)(round(newlevel)), alfa);
 
         
 	dst->flags = src->flags;
@@ -409,11 +408,8 @@ static void wpa_bss_EWMA_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, 
 	dst->freq = src->freq;
 	dst->beacon_int = src->beacon_int;
 	dst->caps = src->caps;
-	/*dst->qual = src->qual;*/
         dst->qual = (int)round(newqual); 
-	/*dst->noise = src->noise;*/
         dst->noise = (int)round(newnoise);
-        /*dst->level = src->level;*/
         dst->level = (int)round(newlevel);
 	dst->tsf = src->tsf;
 
@@ -775,11 +771,7 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
         /* adiciona o BSS no final da lista */
 	dl_list_add_tail(&wpa_s->bss, &bss->list);
 
-	notify_bss_changes(wpa_s, changes, bss);
-
-        wpa_msg(wpa_s, MSG_INFO, "HELGA fim da fc wpa_bss_update BSS: Merged new id %u BSSID " MACSTR
-         " new signal level: %d ",
-         bss->id, MAC2STR(bss->bssid), bss->level);        
+	notify_bss_changes(wpa_s, changes, bss);    
         
 	return bss;
 }

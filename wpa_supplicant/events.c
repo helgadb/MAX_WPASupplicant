@@ -1124,7 +1124,11 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
 {
 	struct wpa_bss *current_bss = NULL;
 	int min_diff;
-
+        
+        wpa_msg(wpa_s, MSG_INFO, "HELGA - wpa_supplicant_need_to_roam: Algoritmo de Handoff=%d ; Parametros: Ws=%d Alpha=%f HM=%d", wpa_s->global->alg_handoff, wpa_s->global->Ws, wpa_s->global->alpha, wpa_s->global->hm);
+        wpa_msg(wpa_s, MSG_INFO, "HELGA - Selected BSS: " MACSTR " %s ,  signal level: %d", MAC2STR(selected->bssid), selected->ssid, selected->level);
+        
+        
 	if (wpa_s->reassociate){
 		wpa_msg(wpa_s, MSG_INFO, "W0 HELGA - explicit request to reassociate - FAZ ROAMING");
 		return 1; /* explicit request to reassociate */
@@ -1154,6 +1158,8 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
 	if (!current_bss)
 		current_bss = wpa_bss_get_bssid(wpa_s, wpa_s->bssid);
 
+        wpa_msg(wpa_s, MSG_INFO, "HELGA - Current BSS: " MACSTR " %s ,  signal level: %d", MAC2STR(current_bss->bssid), current_bss->ssid, current_bss->level);
+        
 	if (!current_bss){
 		wpa_msg(wpa_s, MSG_INFO, "M2 HELGA - current BSS not seen in scan results- FAZ ROAMING");
 		return 1; /* current BSS not seen in scan results */
@@ -1176,12 +1182,6 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
 	wpa_dbg(wpa_s, MSG_DEBUG, "Selected BSS: " MACSTR " level=%d",
 		MAC2STR(selected->bssid), selected->level);
 
-	wpa_msg(wpa_s, MSG_INFO, "HELGA - Considering within-ESS reassociation");
-	wpa_msg(wpa_s, MSG_INFO, "HELGA - Current BSS: " MACSTR " level=%d",
-		MAC2STR(current_bss->bssid), current_bss->level);
-	wpa_msg(wpa_s, MSG_INFO, "HELGA - Selected BSS: " MACSTR " level=%d",
-		MAC2STR(selected->bssid), selected->level);
-	
 	if (wpa_s->current_ssid->bssid_set &&
 	    os_memcmp(selected->bssid, wpa_s->current_ssid->bssid, ETH_ALEN) ==
 	    0) {
@@ -1207,8 +1207,6 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
                 /* Os min_diff s eram 2,1,2,3,4,5 */
                 min_diff = 2;
                 if (current_bss->level < 0) {
-
-                        wpa_msg(wpa_s, MSG_INFO, "HELGA - ENTROU NO IF QUE SETA O MIN DIFF");
 
                         if (current_bss->level < -85)
                                 min_diff = 1;
@@ -1240,11 +1238,11 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
         if (abs(current_bss->level - selected->level) < min_diff) {
                 wpa_dbg(wpa_s, MSG_DEBUG, "Skip roam - too small difference "
                         "in signal level");
-                wpa_msg(wpa_s, MSG_INFO, "M7 HELGA - NAO FEZ ROAMING PQ O A DIF DE SINAL ESTAVA PEQUENA");
+                wpa_msg(wpa_s, MSG_INFO, "M7 HELGA - NAO FEZ ROAMING PQ A DIF DE SINAL ESTAVA PEQUENA: MIN DIFF %d", min_diff);
                 return 0;
         }
 
-        wpa_msg(wpa_s, MSG_INFO, "M8 HELGA - FEZ ROAMING PQ O A DIF DE SINAL ESTAVA MAIOR Q MIN DIFF");
+        wpa_msg(wpa_s, MSG_INFO, "M8 HELGA - FEZ ROAMING PQ A DIF DE SINAL ESTAVA MAIOR Q MIN DIFF %d", min_diff);
         return 1;
 #else /* CONFIG_NO_ROAMING */
 	return 0;
