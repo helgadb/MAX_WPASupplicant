@@ -197,6 +197,10 @@ static void wpa_bss_remove(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 		wpa_ssid_txt(bss->ssid, bss->ssid_len), reason);
 	wpas_notify_bss_removed(wpa_s, bss->bssid, bss->id);
 	wpa_bss_anqp_free(bss->anqp);
+        os_free(bss->win->arraySignal);
+        os_free(bss->win->arrayQual);
+        os_free(bss->win->arrayNoise);
+        os_free(bss->win);
 	os_free(bss);
 }
 
@@ -260,7 +264,7 @@ static void wpa_bss_copy_res(struct wpa_bss *dst, struct wpa_scan_res *src,
 	dst->noise = src->noise;
 	dst->level = src->level;
 	dst->tsf = src->tsf;
-
+        enqueue(dst->win, src->level, src->noise, src->qual);
 	calculate_update_time(fetch_time, src->age, &dst->last_update);
 }
 
@@ -319,20 +323,20 @@ void enqueue(struct circqueue *q,int x, int y, int z) {
 static void wpa_bss_MAX_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, struct wpa_scan_res *src,
 			     struct os_reltime *fetch_time)
 {
-    enqueue(wpa_s->global->win, src->level, src->noise, src->qual);
-    int s=queuesize(wpa_s->global->win);
+    enqueue(dst->win, src->level, src->noise, src->qual);
+    int s=queuesize(dst->win);
     int maxIdx=-1;
     int maxSignal=-999;
     int i;
     for (i=0; i < s; i++ ) {
-        if ( wpa_s->global->win->arraySignal[i] > maxSignal) {
-            maxSignal=wpa_s->global->win->arraySignal[i];
+        if ( dst->win->arraySignal[i] > maxSignal) {
+            maxSignal=dst->win->arraySignal[i];
             maxIdx=i;            
         }
     }   
     wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_MAX_res : id %u BSSID %s " MACSTR
      " old signal level: %d ; scan signal level: %d ; new signal level: %d ; Ws = %d; win=[%d,%d,%d,%d,%d]", 
-     dst->id,dst->ssid,MAC2STR(dst->bssid), dst->level, src->level, wpa_s->global->win->arraySignal[maxIdx],  wpa_s->global->Ws, wpa_s->global->win->arraySignal[0], wpa_s->global->win->arraySignal[1], wpa_s->global->win->arraySignal[2], wpa_s->global->win->arraySignal[3], wpa_s->global->win->arraySignal[4]);
+     dst->id,dst->ssid,MAC2STR(dst->bssid), dst->level, src->level, dst->win->arraySignal[maxIdx],  wpa_s->global->Ws, dst->win->arraySignal[0], dst->win->arraySignal[1], dst->win->arraySignal[2], dst->win->arraySignal[3], dst->win->arraySignal[4]);
 
 
     dst->flags = src->flags;
@@ -340,9 +344,9 @@ static void wpa_bss_MAX_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, s
     dst->freq = src->freq;
     dst->beacon_int = src->beacon_int;
     dst->caps = src->caps;
-    dst->qual = wpa_s->global->win->arrayQual[maxIdx]; 
-    dst->noise = wpa_s->global->win->arrayNoise[maxIdx];
-    dst->level = wpa_s->global->win->arraySignal[maxIdx];
+    dst->qual = dst->win->arrayQual[maxIdx]; 
+    dst->noise = dst->win->arrayNoise[maxIdx];
+    dst->level = dst->win->arraySignal[maxIdx];
     dst->tsf = src->tsf;
 
     calculate_update_time(fetch_time, src->age, &dst->last_update);
@@ -353,26 +357,26 @@ static void wpa_bss_EWMA_MAX_res (struct wpa_supplicant *wpa_s, struct wpa_bss *
 {
     // TODO: O sinal antigo deve ser pego da janela (wpa_s->global->win->arraySignal[lidx]) e não de dst->level
     double alfa= wpa_s->global->alpha;
-    int lidx=wpa_s->global->win->rear;    
-    double newlevel = mwtodbm(alfa * dbmtomw(wpa_s->global->win->arraySignal[lidx]) + ((1 - alfa) * dbmtomw(src->level)) );
-    double newnoise = mwtodbm(alfa * dbmtomw(wpa_s->global->win->arrayNoise[lidx]) + ((1 - alfa) * dbmtomw(src->noise)) );
-    double newqual = ( alfa * wpa_s->global->win->arrayQual[lidx] + (1 - alfa) * src->qual );
+    int lidx=dst->win->rear;    
+    double newlevel = mwtodbm(alfa * dbmtomw(dst->win->arraySignal[lidx]) + ((1 - alfa) * dbmtomw(src->level)) );
+    double newnoise = mwtodbm(alfa * dbmtomw(dst->win->arrayNoise[lidx]) + ((1 - alfa) * dbmtomw(src->noise)) );
+    double newqual = ( alfa * dst->win->arrayQual[lidx] + (1 - alfa) * src->qual );
     
-    enqueue(wpa_s->global->win, (int)round(newlevel), (int)round(newnoise), (int)round(newqual));
-    int s=queuesize(wpa_s->global->win);
+    enqueue(dst->win, (int)round(newlevel), (int)round(newnoise), (int)round(newqual));
+    int s=queuesize(dst->win);
     int maxIdx=-1;
     int maxSignal=-999;
     int i;
     for (i=0; i < s; i++ ) {
-        if ( wpa_s->global->win->arraySignal[i] > maxSignal) {
-            maxSignal=wpa_s->global->win->arraySignal[i];
+        if ( dst->win->arraySignal[i] > maxSignal) {
+            maxSignal=dst->win->arraySignal[i];
             maxIdx=i;            
         }
     }  
     
     wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_MAX_res : id %u BSSID %s " MACSTR
     " old signal level: %d ; scan signal level: %d ; EWMA old signal level: %d ; EWMA new signal level: %d ; new MAX signal level: %d ; Ws: %d ; Alpha: %f ",
-    dst->id, dst->ssid , MAC2STR(dst->bssid),  dst->level, src->level,wpa_s->global->win->arraySignal[lidx],(int)round(newlevel),wpa_s->global->win->arraySignal[maxIdx], wpa_s->global->Ws, alfa);
+    dst->id, dst->ssid , MAC2STR(dst->bssid),  dst->level, src->level,dst->win->arraySignal[lidx],(int)round(newlevel),dst->win->arraySignal[maxIdx], wpa_s->global->Ws, alfa);
 
 
     dst->flags = src->flags;
@@ -380,9 +384,9 @@ static void wpa_bss_EWMA_MAX_res (struct wpa_supplicant *wpa_s, struct wpa_bss *
     dst->freq = src->freq;
     dst->beacon_int = src->beacon_int;
     dst->caps = src->caps;
-    dst->qual = wpa_s->global->win->arrayQual[maxIdx]; 
-    dst->noise = wpa_s->global->win->arrayNoise[maxIdx];
-    dst->level = wpa_s->global->win->arraySignal[maxIdx];
+    dst->qual = dst->win->arrayQual[maxIdx]; 
+    dst->noise = dst->win->arrayNoise[maxIdx];
+    dst->level = dst->win->arraySignal[maxIdx];
     dst->tsf = src->tsf;
 
     calculate_update_time(fetch_time, src->age, &dst->last_update);
@@ -492,6 +496,8 @@ static struct wpa_bss * wpa_bss_add(struct wpa_supplicant *wpa_s,
 		return NULL;
 	bss->id = wpa_s->bss_next_id++;
 	bss->last_update_idx = wpa_s->bss_update_idx;
+        bss->win = q( wpa_s->global->Ws );
+        if (bss->win == NULL) return NULL;
 	wpa_bss_copy_res(bss, res, fetch_time);
 	os_memcpy(bss->ssid, ssid, ssid_len);
 	bss->ssid_len = ssid_len;

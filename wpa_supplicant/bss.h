@@ -93,6 +93,7 @@ struct wpa_bss {
 	size_t beacon_ie_len;
 	/* followed by ie_len octets of IEs */
 	/* followed by beacon_ie_len octets of IEs */
+        struct circqueue *win; // janela utilizada pelos algoritmos de handoff para armazenas amostras  de RSSI, NOISE e QUALIDADE
 };
 
 void wpa_bss_update_start(struct wpa_supplicant *wpa_s);

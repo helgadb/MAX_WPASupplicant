@@ -255,7 +255,6 @@ struct wpa_global {
         double alpha; // alpha used by EWMA handoff algorithms
         int alg_handoff; // handoff algorithm id: 1 - WPA, 2 - EWMA, 3 - MAX, 4 - WPA_MAX, 5 - EWMA_MAX,  6 - WPA_EWMA, 7 - HM
         char str_alg_handoff[10];
-        struct circqueue *win; // janela utilizada pelos algoritmos de handoff para armazenas amostras  de RSSI, NOISE e QUALIDADE
 	struct wpa_supplicant *ifaces;
 	struct wpa_params params;
 	struct ctrl_iface_global_priv *ctrl_iface;
