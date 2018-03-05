@@ -331,8 +331,8 @@ static void wpa_bss_MAX_res(struct wpa_supplicant *wpa_s, struct wpa_bss *dst, s
         }
     }   
     wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_MAX_res : id %u BSSID %s " MACSTR
-     " old signal level: %d ; scan signal level: %d ; new signal level: %d ; Ws = %d",
-     dst->id,dst->ssid,MAC2STR(dst->bssid), dst->level, src->level, wpa_s->global->win->arraySignal[maxIdx],  wpa_s->global->Ws);
+     " old signal level: %d ; scan signal level: %d ; new signal level: %d ; Ws = %d; win=[%d,%d,%d,%d,%d]", 
+     dst->id,dst->ssid,MAC2STR(dst->bssid), dst->level, src->level, wpa_s->global->win->arraySignal[maxIdx],  wpa_s->global->Ws, wpa_s->global->win->arraySignal[0], wpa_s->global->win->arraySignal[1], wpa_s->global->win->arraySignal[2], wpa_s->global->win->arraySignal[3], wpa_s->global->win->arraySignal[4]);
 
 
     dst->flags = src->flags;

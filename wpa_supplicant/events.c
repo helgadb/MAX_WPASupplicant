@@ -1125,7 +1125,7 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
 	struct wpa_bss *current_bss = NULL;
 	int min_diff;
         
-        wpa_msg(wpa_s, MSG_INFO, "HELGA - wpa_supplicant_need_to_roam: Algoritmo de Handoff=%d ; Parametros: Ws=%d Alpha=%f HM=%d", wpa_s->global->alg_handoff, wpa_s->global->Ws, wpa_s->global->alpha, wpa_s->global->hm);
+        wpa_msg(wpa_s, MSG_INFO, "HELGA - wpa_supplicant_need_to_roam: Algoritmo de Handoff=%d %s; Parametros: Ws=%d Alpha=%f HM=%d", wpa_s->global->alg_handoff,wpa_s->global->str_alg_handoff, wpa_s->global->Ws, wpa_s->global->alpha, wpa_s->global->hm);
         wpa_msg(wpa_s, MSG_INFO, "HELGA - Selected BSS: " MACSTR " %s ,  signal level: %d", MAC2STR(selected->bssid), selected->ssid, selected->level);
         
         
@@ -1228,12 +1228,27 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
                 min_diff=0;
             break;
             
-            case 7 :
+            case 7 : // HM
                 min_diff=wpa_s->global->hm;
             break;
             
             default :
-                min_diff=0;
+                /* Os min_diff s eram 2,1,2,3,4,5 */
+                min_diff = 2;
+                if (current_bss->level < 0) {
+
+                        if (current_bss->level < -85)
+                                min_diff = 1;
+                        else if (current_bss->level < -80)
+                                min_diff = 2;
+                        else if (current_bss->level < -75)
+                                min_diff = 3;
+                        else if (current_bss->level < -70)
+                                min_diff = 4;
+                        else
+                                min_diff = 5;
+
+                }
         }
         if (abs(current_bss->level - selected->level) < min_diff) {
                 wpa_dbg(wpa_s, MSG_DEBUG, "Skip roam - too small difference "

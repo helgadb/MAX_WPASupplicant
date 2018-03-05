@@ -1,7 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name=".pc">
+        <df name="01_use_pkg-config_for_pcsc-lite_module.patch">
+          <df name="wpa_supplicant">
+          </df>
+        </df>
+        <df name="02_dbus_group_policy.patch">
+          <df name="wpa_supplicant">
+            <df name="dbus">
+            </df>
+          </df>
+        </df>
+        <df name="06_wpa_gui_menu_exec_path.patch">
+          <df name="wpa_supplicant">
+            <df name="wpa_gui-qt4">
+            </df>
+          </df>
+        </df>
+        <df name="07_dbus_service_syslog.patch">
+          <df name="wpa_supplicant">
+            <df name="dbus">
+            </df>
+            <df name="systemd">
+            </df>
+          </df>
+        </df>
+        <df name="12_wpa_gui_knotify_support.patch">
+          <df name="wpa_supplicant">
+            <df name="wpa_gui-qt4">
+              <in>wpagui.cpp</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2014-3686.patch">
+          <df name="hostapd">
+            <in>hostapd_cli.c</in>
+          </df>
+          <df name="src">
+            <df name="utils">
+              <in>os.h</in>
+              <in>os_unix.c</in>
+              <in>os_win32.c</in>
+            </df>
+          </df>
+          <df name="wpa_supplicant">
+            <in>wpa_cli.c</in>
+          </df>
+        </df>
+        <df name="CVE-2015-1863.patch">
+          <df name="src">
+            <df name="p2p">
+              <in>p2p.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2015-4141.patch">
+          <df name="src">
+            <df name="wps">
+              <in>httpread.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2015-4142.patch">
+          <df name="src">
+            <df name="ap">
+              <in>wmm.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2015-4143-4146.patch">
+          <df name="src">
+            <df name="eap_peer">
+              <in>eap_pwd.c</in>
+            </df>
+            <df name="eap_server">
+              <in>eap_server_pwd.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="dbus-activation-cmdline.patch">
+          <df name="wpa_supplicant">
+            <df name="dbus">
+            </df>
+          </df>
+        </df>
+        <df name="EAP-TLS-server_fix-TLS-Message-length-validation.patch">
+          <df name="src">
+            <df name="eap_server">
+              <in>eap_server_tls_common.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="git_accept_client_cert_from_server.patch">
+          <df name="src">
+            <df name="crypto">
+              <in>tls.h</in>
+              <in>tls_openssl.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="session-ticket.patch">
+          <df name="src">
+            <df name="crypto">
+              <in>tls_openssl.c</in>
+            </df>
+          </df>
+        </df>
+      </df>
       <df name="debian">
         <df name="config">
           <df name="hostapd">
@@ -514,6 +621,8 @@
           <in>wps_validate.c</in>
         </df>
       </df>
+      <df name="wpa-2.1-201802">
+      </df>
       <df name="wpa_supplicant">
         <df name="dbus">
           <in>dbus_common.c</in>
@@ -662,6 +771,7 @@
         <in>wps_supplicant.c</in>
         <in>wps_supplicant.h</in>
       </df>
+      <in>fila_circular.c</in>
     </df>
   </logicalFolder>
   <projectmakefile>wpa_supplicant/Makefile</projectmakefile>

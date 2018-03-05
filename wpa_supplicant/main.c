@@ -169,7 +169,7 @@ int main(int argc, char *argv[])
 
 	for (;;) {
 		c = getopt(argc, argv,
-			   "b:Bc:C:D:de:f:g:G:hi:I:KLNo:O:p:P:qsTtuvW");
+			   "b:Bc:C:D:de:f:g:G:hi:I:KLNo:O:p:P:qsTtuvWx:X:y:Y:");
 		if (c < 0)
 			break;
 		switch (c) {
@@ -280,6 +280,18 @@ int main(int argc, char *argv[])
 			iface = &ifaces[iface_count - 1]; 
 			os_memset(iface, 0, sizeof(*iface));
 			break;
+                case 'x':
+                        strcpy(params.alg_handoff,optarg);
+                        break;
+                case 'X':
+                        params.Ws = atoi(optarg);
+                        break;     
+                case 'y':
+                        params.alpha = atof(optarg);
+                        break;        
+                case 'Y':
+                        params.hm = atoi(optarg);
+                        break;                         
 		default:
 			usage();
 			exitcode = 0;

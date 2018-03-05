@@ -1,6 +1,6 @@
 ../src/drivers/driver_nl80211.o: ../src/drivers/driver_nl80211.c \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/includes.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/build_config.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/includes.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/build_config.h \
  /usr/include/libnl3/netlink/genl/genl.h \
  /usr/include/libnl3/netlink/netlink.h \
  /usr/include/libnl3/netlink/netlink-compat.h \
@@ -16,19 +16,19 @@
  /usr/include/libnl3/netlink/genl/family.h \
  /usr/include/libnl3/netlink/cache.h \
  /usr/include/libnl3/netlink/genl/ctrl.h ../src/drivers/nl80211_copy.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/common.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/os.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpa_debug.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/wpabuf.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/eloop.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/list.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/common/qca-vendor.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/common/ieee802_11_defs.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/common/ieee802_11_common.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/l2_packet/l2_packet.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/common.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/os.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/wpa_debug.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/wpabuf.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/eloop.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/list.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common/qca-vendor.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common/ieee802_11_defs.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common/ieee802_11_common.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/l2_packet/l2_packet.h \
  ../src/drivers/netlink.h ../src/drivers/linux_ioctl.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/radiotap.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/radiotap_iter.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/utils/radiotap.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/radiotap.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/radiotap_iter.h \
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils/radiotap.h \
  ../src/drivers/rfkill.h ../src/drivers/driver.h \
- /home/helga/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa_supplicant/codigo/wpa-2.1/src/common/defs.h
+ /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common/defs.h

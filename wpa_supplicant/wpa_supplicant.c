@@ -3774,19 +3774,76 @@ struct wpa_global * wpa_supplicant_init(struct wpa_params *params)
 	global = os_zalloc(sizeof(*global));
 	if (global == NULL)
 		return NULL;
-        global->Ws=5;
-        global->alpha=0.1;
-        global->hm=15;
-        global->alg_handoff = 1;
-        if (global->alg_handoff == 3 || global->alg_handoff == 4 || global->alg_handoff == 5) {
-            global->win = q( global->Ws );
-            if ( global->win == NULL) {
-                wpa_supplicant_deinit(global);
-		return NULL;
-            }     
-        }
-        else global->win = NULL;
-                
+
+        global->win = NULL;
+        global->alg_handoff=1;
+        strcpy(global->str_alg_handoff,"WPA");
+        global->hm=-1;
+        global->Ws=-1;
+        global->alpha=-1;
+        if(params->alg_handoff) {
+            if (strcmp(params->alg_handoff, "WPA") == 0){
+                global->alg_handoff = 1;
+                strcpy(global->str_alg_handoff,"WPA");
+            }
+            else if (strcmp(params->alg_handoff, "EWMA") == 0){
+                global->alg_handoff = 2;
+                strcpy(global->str_alg_handoff,"EWMA");            
+            }
+            else if (strcmp(params->alg_handoff, "MAX") == 0){
+                global->alg_handoff = 3;
+                strcpy(global->str_alg_handoff,"MAX");            
+            }
+            else if (strcmp(params->alg_handoff, "WPA_MAX") == 0){
+                global->alg_handoff = 4;
+                strcpy(global->str_alg_handoff,"WPA_MAX");            
+            }
+            else if (strcmp(params->alg_handoff, "EWMA_MAX") == 0){
+                global->alg_handoff = 5;
+                strcpy(global->str_alg_handoff,"EWMA_MAX");            
+            }
+            else if (strcmp(params->alg_handoff, "WPA_EWMA") == 0){
+                global->alg_handoff = 6;
+                strcpy(global->str_alg_handoff,"WPA_EWMA");            
+            }
+            else if (strcmp(params->alg_handoff, "HM") == 0){
+                global->alg_handoff = 7;
+                strcpy(global->str_alg_handoff,"HM");            
+            }
+                        
+            if (global->alg_handoff == 3 || global->alg_handoff == 4 || global->alg_handoff == 5) {
+                if(params->Ws) {
+                    global->Ws = params->Ws;                
+                    global->win = q( global->Ws );
+                }
+                else { 
+                    wpa_supplicant_deinit(global);
+                    return NULL;
+                }
+                if ( global->win == NULL) {
+                    wpa_supplicant_deinit(global);
+                    return NULL;
+                }     
+            }
+            
+            if (global->alg_handoff == 2 || global->alg_handoff == 5 || global->alg_handoff == 6) {
+                if(params->alpha)
+                    global->alpha = params->alpha;
+                else {
+                    wpa_supplicant_deinit(global);
+                    return NULL;
+                }
+            }
+            // algoritmos que necessitam de hm
+            if (global->alg_handoff == 7){
+                if(params->hm) 
+                    global->hm = params->hm;
+                else {
+                    wpa_supplicant_deinit(global);
+                    return NULL;
+                }
+            } 
+        }                
 	dl_list_init(&global->p2p_srv_bonjour);
 	dl_list_init(&global->p2p_srv_upnp);
 	global->params.daemonize = params->daemonize;

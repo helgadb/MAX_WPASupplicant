@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root=".." name="0">
+      <df name=".pc">
+        <df name="01_use_pkg-config_for_pcsc-lite_module.patch">
+          <df name="wpa_supplicant">
+          </df>
+        </df>
+        <df name="02_dbus_group_policy.patch">
+          <df name="wpa_supplicant">
+            <df name="dbus">
+            </df>
+          </df>
+        </df>
+        <df name="06_wpa_gui_menu_exec_path.patch">
+          <df name="wpa_supplicant">
+            <df name="wpa_gui-qt4">
+            </df>
+          </df>
+        </df>
+        <df name="07_dbus_service_syslog.patch">
+          <df name="wpa_supplicant">
+            <df name="dbus">
+            </df>
+            <df name="systemd">
+            </df>
+          </df>
+        </df>
+        <df name="12_wpa_gui_knotify_support.patch">
+          <df name="wpa_supplicant">
+            <df name="wpa_gui-qt4">
+              <in>wpagui.cpp</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2014-3686.patch">
+          <df name="hostapd">
+            <in>hostapd_cli.c</in>
+          </df>
+          <df name="src">
+            <df name="utils">
+              <in>os.h</in>
+              <in>os_unix.c</in>
+              <in>os_win32.c</in>
+            </df>
+          </df>
+          <df name="wpa_supplicant">
+            <in>wpa_cli.c</in>
+          </df>
+        </df>
+        <df name="CVE-2015-1863.patch">
+          <df name="src">
+            <df name="p2p">
+              <in>p2p.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2015-4141.patch">
+          <df name="src">
+            <df name="wps">
+              <in>httpread.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2015-4142.patch">
+          <df name="src">
+            <df name="ap">
+              <in>wmm.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="CVE-2015-4143-4146.patch">
+          <df name="src">
+            <df name="eap_peer">
+              <in>eap_pwd.c</in>
+            </df>
+            <df name="eap_server">
+              <in>eap_server_pwd.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="dbus-activation-cmdline.patch">
+          <df name="wpa_supplicant">
+            <df name="dbus">
+            </df>
+          </df>
+        </df>
+        <df name="EAP-TLS-server_fix-TLS-Message-length-validation.patch">
+          <df name="src">
+            <df name="eap_server">
+              <in>eap_server_tls_common.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="git_accept_client_cert_from_server.patch">
+          <df name="src">
+            <df name="crypto">
+              <in>tls.h</in>
+              <in>tls_openssl.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="session-ticket.patch">
+          <df name="src">
+            <df name="crypto">
+              <in>tls_openssl.c</in>
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="debian">
+        <df name="config">
+          <df name="hostapd">
+          </df>
+          <df name="wpasupplicant">
+          </df>
+        </df>
+        <df name="examples">
+        </df>
+        <df name="ifupdown">
+        </df>
+        <df name="patches">
+        </df>
+        <df name="source">
+        </df>
+        <df name="wpa_gui">
+        </df>
+      </df>
+      <df name="hostapd">
+        <df name="logwatch">
+        </df>
+        <in>config_file.c</in>
+        <in>config_file.h</in>
+        <in>ctrl_iface.c</in>
+        <in>ctrl_iface.h</in>
+        <in>eap_register.c</in>
+        <in>eap_register.h</in>
+        <in>hlr_auc_gw.c</in>
+        <in>hostapd_cli.c</in>
+        <in>main.c</in>
+        <in>nt_password_hash.c</in>
+      </df>
+      <df name="patches">
+      </df>
+      <df name="src">
+        <df name="ap">
+          <in>accounting.c</in>
+          <in>accounting.h</in>
+          <in>acs.c</in>
+          <in>acs.h</in>
+          <in>ap_config.c</in>
+          <in>ap_config.h</in>
+          <in>ap_drv_ops.c</in>
+          <in>ap_drv_ops.h</in>
+          <in>ap_list.c</in>
+          <in>ap_list.h</in>
+          <in>ap_mlme.c</in>
+          <in>ap_mlme.h</in>
+          <in>authsrv.c</in>
+          <in>authsrv.h</in>
+          <in>beacon.c</in>
+          <in>beacon.h</in>
+          <in>ctrl_iface_ap.c</in>
+          <in>ctrl_iface_ap.h</in>
+          <in>dfs.c</in>
+          <in>dfs.h</in>
+          <in>drv_callbacks.c</in>
+          <in>eap_user_db.c</in>
+          <in>gas_serv.c</in>
+          <in>gas_serv.h</in>
+          <in>hostapd.c</in>
+          <in>hostapd.h</in>
+          <in>hs20.c</in>
+          <in>hs20.h</in>
+          <in>hw_features.c</in>
+          <in>hw_features.h</in>
+          <in>iapp.c</in>
+          <in>iapp.h</in>
+          <in>ieee802_11.c</in>
+          <in>ieee802_11.h</in>
+          <in>ieee802_11_auth.c</in>
+          <in>ieee802_11_auth.h</in>
+          <in>ieee802_11_ht.c</in>
+          <in>ieee802_11_shared.c</in>
+          <in>ieee802_11_vht.c</in>
+          <in>ieee802_1x.c</in>
+          <in>ieee802_1x.h</in>
+          <in>p2p_hostapd.c</in>
+          <in>p2p_hostapd.h</in>
+          <in>peerkey_auth.c</in>
+          <in>pmksa_cache_auth.c</in>
+          <in>pmksa_cache_auth.h</in>
+          <in>preauth_auth.c</in>
+          <in>preauth_auth.h</in>
+          <in>sta_info.c</in>
+          <in>sta_info.h</in>
+          <in>tkip_countermeasures.c</in>
+          <in>tkip_countermeasures.h</in>
+          <in>utils.c</in>
+          <in>vlan_init.c</in>
+          <in>vlan_init.h</in>
+          <in>vlan_util.c</in>
+          <in>vlan_util.h</in>
+          <in>wmm.c</in>
+          <in>wmm.h</in>
+          <in>wnm_ap.c</in>
+          <in>wnm_ap.h</in>
+          <in>wpa_auth.c</in>
+          <in>wpa_auth.h</in>
+          <in>wpa_auth_ft.c</in>
+          <in>wpa_auth_glue.c</in>
+          <in>wpa_auth_glue.h</in>
+          <in>wpa_auth_i.h</in>
+          <in>wpa_auth_ie.c</in>
+          <in>wpa_auth_ie.h</in>
+          <in>wps_hostapd.c</in>
+          <in>wps_hostapd.h</in>
+        </df>
+        <df name="common">
+          <in>defs.h</in>
+          <in>eapol_common.h</in>
+          <in>gas.c</in>
+          <in>gas.h</in>
+          <in>ieee802_11_common.c</in>
+          <in>ieee802_11_common.h</in>
+          <in>ieee802_11_defs.h</in>
+          <in>privsep_commands.h</in>
+          <in>qca-vendor.h</in>
+          <in>sae.c</in>
+          <in>sae.h</in>
+          <in>version.h</in>
+          <in>wpa_common.c</in>
+          <in>wpa_common.h</in>
+          <in>wpa_ctrl.c</in>
+          <in>wpa_ctrl.h</in>
+        </df>
+        <df name="crypto">
+          <in>aes-cbc.c</in>
+          <in>aes-ccm.c</in>
+          <in>aes-ctr.c</in>
+          <in>aes-eax.c</in>
+          <in>aes-encblock.c</in>
+          <in>aes-gcm.c</in>
+          <in>aes-internal-dec.c</in>
+          <in>aes-internal-enc.c</in>
+          <in>aes-internal.c</in>
+          <in>aes-omac1.c</in>
+          <in>aes-unwrap.c</in>
+          <in>aes-wrap.c</in>
+          <in>aes.h</in>
+          <in>aes_i.h</in>
+          <in>aes_wrap.h</in>
+          <in>crypto.h</in>
+          <in>crypto_cryptoapi.c</in>
+          <in>crypto_gnutls.c</in>
+          <in>crypto_internal-cipher.c</in>
+          <in>crypto_internal-modexp.c</in>
+          <in>crypto_internal-rsa.c</in>
+          <in>crypto_internal.c</in>
+          <in>crypto_libtomcrypt.c</in>
+          <in>crypto_none.c</in>
+          <in>crypto_nss.c</in>
+          <in>crypto_openssl.c</in>
+          <in>des-internal.c</in>
+          <in>des_i.h</in>
+          <in>dh_group5.c</in>
+          <in>dh_group5.h</in>
+          <in>dh_groups.c</in>
+          <in>dh_groups.h</in>
+          <in>fips_prf_cryptoapi.c</in>
+          <in>fips_prf_gnutls.c</in>
+          <in>fips_prf_internal.c</in>
+          <in>fips_prf_nss.c</in>
+          <in>fips_prf_openssl.c</in>
+          <in>md4-internal.c</in>
+          <in>md5-internal.c</in>
+          <in>md5.c</in>
+          <in>md5.h</in>
+          <in>md5_i.h</in>
+          <in>milenage.c</in>
+          <in>milenage.h</in>
+          <in>ms_funcs.c</in>
+          <in>ms_funcs.h</in>
+          <in>random.c</in>
+          <in>random.h</in>
+          <in>rc4.c</in>
+          <in>sha1-internal.c</in>
+          <in>sha1-pbkdf2.c</in>
+          <in>sha1-prf.c</in>
+          <in>sha1-tlsprf.c</in>
+          <in>sha1-tprf.c</in>
+          <in>sha1.c</in>
+          <in>sha1.h</in>
+          <in>sha1_i.h</in>
+          <in>sha256-internal.c</in>
+          <in>sha256-prf.c</in>
+          <in>sha256-tlsprf.c</in>
+          <in>sha256.c</in>
+          <in>sha256.h</in>
+          <in>sha256_i.h</in>
+          <in>tls.h</in>
+          <in>tls_gnutls.c</in>
+          <in>tls_internal.c</in>
+          <in>tls_none.c</in>
+          <in>tls_nss.c</in>
+          <in>tls_openssl.c</in>
+          <in>tls_schannel.c</in>
+        </df>
+        <df name="drivers">
+          <in>android_drv.h</in>
+          <in>driver.h</in>
+          <in>driver_atheros.c</in>
+          <in>driver_bsd.c</in>
+          <in>driver_common.c</in>
+          <in>driver_hostap.c</in>
+          <in>driver_hostap.h</in>
+          <in>driver_madwifi.c</in>
+          <in>driver_ndis.c</in>
+          <in>driver_ndis.h</in>
+          <in>driver_ndis_.c</in>
+          <in>driver_nl80211.c</in>
+          <in>driver_none.c</in>
+          <in>driver_openbsd.c</in>
+          <in>driver_privsep.c</in>
+          <in>driver_roboswitch.c</in>
+          <in>driver_test.c</in>
+          <in>driver_wext.c</in>
+          <in>driver_wext.h</in>
+          <in>driver_wired.c</in>
+          <in>drivers.c</in>
+          <in>linux_ioctl.c</in>
+          <in>linux_ioctl.h</in>
+          <in>linux_wext.h</in>
+          <in>ndis_events.c</in>
+          <in>netlink.c</in>
+          <in>netlink.h</in>
+          <in>nl80211_copy.h</in>
+          <in>priv_netlink.h</in>
+          <in>rfkill.c</in>
+          <in>rfkill.h</in>
+        </df>
+        <df name="eap_common">
+          <in>chap.c</in>
+          <in>chap.h</in>
+          <in>eap_common.c</in>
+          <in>eap_common.h</in>
+          <in>eap_defs.h</in>
+          <in>eap_eke_common.c</in>
+          <in>eap_eke_common.h</in>
+          <in>eap_fast_common.c</in>
+          <in>eap_fast_common.h</in>
+          <in>eap_gpsk_common.c</in>
+          <in>eap_gpsk_common.h</in>
+          <in>eap_ikev2_common.c</in>
+          <in>eap_ikev2_common.h</in>
+          <in>eap_pax_common.c</in>
+          <in>eap_pax_common.h</in>
+          <in>eap_peap_common.c</in>
+          <in>eap_peap_common.h</in>
+          <in>eap_psk_common.c</in>
+          <in>eap_psk_common.h</in>
+          <in>eap_pwd_common.c</in>
+          <in>eap_pwd_common.h</in>
+          <in>eap_sake_common.c</in>
+          <in>eap_sake_common.h</in>
+          <in>eap_sim_common.c</in>
+          <in>eap_sim_common.h</in>
+          <in>eap_tlv_common.h</in>
+          <in>eap_ttls.h</in>
+          <in>eap_wsc_common.c</in>
+          <in>eap_wsc_common.h</in>
+          <in>ikev2_common.c</in>
+          <in>ikev2_common.h</in>
+        </df>
+        <df name="eap_peer">
+          <in>eap.c</in>
+          <in>eap.h</in>
+          <in>eap_aka.c</in>
+          <in>eap_config.h</in>
+          <in>eap_eke.c</in>
+          <in>eap_fast.c</in>
+          <in>eap_fast_pac.c</in>
+          <in>eap_fast_pac.h</in>
+          <in>eap_gpsk.c</in>
+          <in>eap_gtc.c</in>
+          <in>eap_i.h</in>
+          <in>eap_ikev2.c</in>
+          <in>eap_leap.c</in>
+          <in>eap_md5.c</in>
+          <in>eap_methods.c</in>
+          <in>eap_methods.h</in>
+          <in>eap_mschapv2.c</in>
+          <in>eap_otp.c</in>
+          <in>eap_pax.c</in>
+          <in>eap_peap.c</in>
+          <in>eap_proxy.h</in>
+          <in>eap_proxy_dummy.c</in>
+          <in>eap_psk.c</in>
+          <in>eap_pwd.c</in>
+          <in>eap_sake.c</in>
+          <in>eap_sim.c</in>
+          <in>eap_tls.c</in>
+          <in>eap_tls_common.c</in>
+          <in>eap_tls_common.h</in>
+          <in>eap_tnc.c</in>
+          <in>eap_ttls.c</in>
+          <in>eap_vendor_test.c</in>
+          <in>eap_wsc.c</in>
+          <in>ikev2.c</in>
+          <in>ikev2.h</in>
+          <in>mschapv2.c</in>
+          <in>mschapv2.h</in>
+          <in>tncc.c</in>
+          <in>tncc.h</in>
+        </df>
+        <df name="eap_server">
+          <in>eap.h</in>
+          <in>eap_i.h</in>
+          <in>eap_methods.h</in>
+          <in>eap_server.c</in>
+          <in>eap_server_aka.c</in>
+          <in>eap_server_eke.c</in>
+          <in>eap_server_fast.c</in>
+          <in>eap_server_gpsk.c</in>
+          <in>eap_server_gtc.c</in>
+          <in>eap_server_identity.c</in>
+          <in>eap_server_ikev2.c</in>
+          <in>eap_server_md5.c</in>
+          <in>eap_server_methods.c</in>
+          <in>eap_server_mschapv2.c</in>
+          <in>eap_server_pax.c</in>
+          <in>eap_server_peap.c</in>
+          <in>eap_server_psk.c</in>
+          <in>eap_server_pwd.c</in>
+          <in>eap_server_sake.c</in>
+          <in>eap_server_sim.c</in>
+          <in>eap_server_tls.c</in>
+          <in>eap_server_tls_common.c</in>
+          <in>eap_server_tnc.c</in>
+          <in>eap_server_ttls.c</in>
+          <in>eap_server_vendor_test.c</in>
+          <in>eap_server_wsc.c</in>
+          <in>eap_sim_db.c</in>
+          <in>eap_sim_db.h</in>
+          <in>eap_tls_common.h</in>
+          <in>ikev2.c</in>
+          <in>ikev2.h</in>
+          <in>tncs.c</in>
+          <in>tncs.h</in>
+        </df>
+        <df name="eapol_auth">
+          <in>eapol_auth_dump.c</in>
+          <in>eapol_auth_sm.c</in>
+          <in>eapol_auth_sm.h</in>
+          <in>eapol_auth_sm_i.h</in>
+        </df>
+        <df name="eapol_supp">
+          <in>eapol_supp_sm.c</in>
+          <in>eapol_supp_sm.h</in>
+        </df>
+        <df name="l2_packet">
+          <in>l2_packet.h</in>
+          <in>l2_packet_freebsd.c</in>
+          <in>l2_packet_linux.c</in>
+          <in>l2_packet_ndis.c</in>
+          <in>l2_packet_none.c</in>
+          <in>l2_packet_pcap.c</in>
+          <in>l2_packet_privsep.c</in>
+          <in>l2_packet_winpcap.c</in>
+        </df>
+        <df name="p2p">
+          <in>p2p.c</in>
+          <in>p2p.h</in>
+          <in>p2p_build.c</in>
+          <in>p2p_dev_disc.c</in>
+          <in>p2p_go_neg.c</in>
+          <in>p2p_group.c</in>
+          <in>p2p_i.h</in>
+          <in>p2p_invitation.c</in>
+          <in>p2p_parse.c</in>
+          <in>p2p_pd.c</in>
+          <in>p2p_sd.c</in>
+          <in>p2p_utils.c</in>
+        </df>
+        <df name="radius">
+          <in>radius.c</in>
+          <in>radius.h</in>
+          <in>radius_client.c</in>
+          <in>radius_client.h</in>
+          <in>radius_das.c</in>
+          <in>radius_das.h</in>
+          <in>radius_server.c</in>
+          <in>radius_server.h</in>
+        </df>
+        <df name="rsn_supp">
+          <in>peerkey.c</in>
+          <in>peerkey.h</in>
+          <in>pmksa_cache.c</in>
+          <in>pmksa_cache.h</in>
+          <in>preauth.c</in>
+          <in>preauth.h</in>
+          <in>tdls.c</in>
+          <in>wpa.c</in>
+          <in>wpa.h</in>
+          <in>wpa_ft.c</in>
+          <in>wpa_i.h</in>
+          <in>wpa_ie.c</in>
+          <in>wpa_ie.h</in>
+        </df>
+        <df name="tls">
+          <in>asn1.c</in>
+          <in>asn1.h</in>
+          <in>bignum.c</in>
+          <in>bignum.h</in>
+          <in>libtommath.c</in>
+          <in>pkcs1.c</in>
+          <in>pkcs1.h</in>
+          <in>pkcs5.c</in>
+          <in>pkcs5.h</in>
+          <in>pkcs8.c</in>
+          <in>pkcs8.h</in>
+          <in>rsa.c</in>
+          <in>rsa.h</in>
+          <in>tlsv1_client.c</in>
+          <in>tlsv1_client.h</in>
+          <in>tlsv1_client_i.h</in>
+          <in>tlsv1_client_read.c</in>
+          <in>tlsv1_client_write.c</in>
+          <in>tlsv1_common.c</in>
+          <in>tlsv1_common.h</in>
+          <in>tlsv1_cred.c</in>
+          <in>tlsv1_cred.h</in>
+          <in>tlsv1_record.c</in>
+          <in>tlsv1_record.h</in>
+          <in>tlsv1_server.c</in>
+          <in>tlsv1_server.h</in>
+          <in>tlsv1_server_i.h</in>
+          <in>tlsv1_server_read.c</in>
+          <in>tlsv1_server_write.c</in>
+          <in>x509v3.c</in>
+          <in>x509v3.h</in>
+        </df>
+        <df name="utils">
+          <in>base64.c</in>
+          <in>base64.h</in>
+          <in>bitfield.c</in>
+          <in>bitfield.h</in>
+          <in>build_config.h</in>
+          <in>common.c</in>
+          <in>common.h</in>
+          <in>edit.c</in>
+          <in>edit.h</in>
+          <in>edit_readline.c</in>
+          <in>edit_simple.c</in>
+          <in>eloop.c</in>
+          <in>eloop.h</in>
+          <in>eloop_win.c</in>
+          <in>ext_password.c</in>
+          <in>ext_password.h</in>
+          <in>ext_password_i.h</in>
+          <in>ext_password_test.c</in>
+          <in>includes.h</in>
+          <in>ip_addr.c</in>
+          <in>ip_addr.h</in>
+          <in>list.h</in>
+          <in>os.h</in>
+          <in>os_internal.c</in>
+          <in>os_none.c</in>
+          <in>os_unix.c</in>
+          <in>os_win32.c</in>
+          <in>pcsc_funcs.c</in>
+          <in>pcsc_funcs.h</in>
+          <in>radiotap.c</in>
+          <in>radiotap.h</in>
+          <in>radiotap_iter.h</in>
+          <in>state_machine.h</in>
+          <in>trace.c</in>
+          <in>trace.h</in>
+          <in>uuid.c</in>
+          <in>uuid.h</in>
+          <in>wpa_debug.c</in>
+          <in>wpa_debug.h</in>
+          <in>wpabuf.c</in>
+          <in>wpabuf.h</in>
+        </df>
+        <df name="wps">
+          <in>http.h</in>
+          <in>http_client.c</in>
+          <in>http_client.h</in>
+          <in>http_server.c</in>
+          <in>http_server.h</in>
+          <in>httpread.c</in>
+          <in>httpread.h</in>
+          <in>ndef.c</in>
+          <in>upnp_xml.c</in>
+          <in>upnp_xml.h</in>
+          <in>wps.c</in>
+          <in>wps.h</in>
+          <in>wps_attr_build.c</in>
+          <in>wps_attr_parse.c</in>
+          <in>wps_attr_parse.h</in>
+          <in>wps_attr_process.c</in>
+          <in>wps_common.c</in>
+          <in>wps_defs.h</in>
+          <in>wps_dev_attr.c</in>
+          <in>wps_dev_attr.h</in>
+          <in>wps_enrollee.c</in>
+          <in>wps_er.c</in>
+          <in>wps_er.h</in>
+          <in>wps_er_ssdp.c</in>
+          <in>wps_i.h</in>
+          <in>wps_registrar.c</in>
+          <in>wps_upnp.c</in>
+          <in>wps_upnp.h</in>
+          <in>wps_upnp_ap.c</in>
+          <in>wps_upnp_event.c</in>
+          <in>wps_upnp_i.h</in>
+          <in>wps_upnp_ssdp.c</in>
+          <in>wps_upnp_web.c</in>
+          <in>wps_validate.c</in>
+        </df>
+      </df>
+      <df name="wpa-2.1-201802">
+      </df>
+      <df name="wpa_supplicant">
+        <df name="dbus">
+          <in>dbus_common.c</in>
+          <in>dbus_common.h</in>
+          <in>dbus_common_i.h</in>
+          <in>dbus_dict_helpers.c</in>
+          <in>dbus_dict_helpers.h</in>
+          <in>dbus_new.c</in>
+          <in>dbus_new.h</in>
+          <in>dbus_new_handlers.c</in>
+          <in>dbus_new_handlers.h</in>
+          <in>dbus_new_handlers_p2p.c</in>
+          <in>dbus_new_handlers_p2p.h</in>
+          <in>dbus_new_handlers_wps.c</in>
+          <in>dbus_new_helpers.c</in>
+          <in>dbus_new_helpers.h</in>
+          <in>dbus_new_introspect.c</in>
+          <in>dbus_old.c</in>
+          <in>dbus_old.h</in>
+          <in>dbus_old_handlers.c</in>
+          <in>dbus_old_handlers.h</in>
+          <in>dbus_old_handlers_wps.c</in>
+        </df>
+        <df name="doc">
+          <df name="docbook">
+          </df>
+        </df>
+        <df name="examples">
+          <df name="p2p">
+          </df>
+        </df>
+        <df name="systemd">
+        </df>
+        <df name="tests">
+          <in>link_test.c</in>
+          <in>test_eap_sim_common.c</in>
+          <in>test_wpa.c</in>
+        </df>
+        <df name="utils">
+        </df>
+        <df name="vs2005">
+          <df name="eapol_test">
+          </df>
+          <df name="win_if_list">
+          </df>
+          <df name="wpa_cli">
+          </df>
+          <df name="wpa_passphrase">
+          </df>
+          <df name="wpa_supplicant">
+          </df>
+          <df name="wpasvc">
+          </df>
+        </df>
+        <df name="wpa_gui-qt4">
+          <df name="icons">
+          </df>
+          <df name="lang">
+          </df>
+          <in>addinterface.cpp</in>
+          <in>addinterface.h</in>
+          <in>eventhistory.cpp</in>
+          <in>eventhistory.h</in>
+          <in>main.cpp</in>
+          <in>networkconfig.cpp</in>
+          <in>networkconfig.h</in>
+          <in>peers.cpp</in>
+          <in>peers.h</in>
+          <in>scanresults.cpp</in>
+          <in>scanresults.h</in>
+          <in>signalbar.cpp</in>
+          <in>signalbar.h</in>
+          <in>stringquery.cpp</in>
+          <in>stringquery.h</in>
+          <in>userdatarequest.cpp</in>
+          <in>userdatarequest.h</in>
+          <in>wpagui.cpp</in>
+          <in>wpagui.h</in>
+          <in>wpamsg.h</in>
+        </df>
+        <in>ap.c</in>
+        <in>ap.h</in>
+        <in>autoscan.c</in>
+        <in>autoscan.h</in>
+        <in>autoscan_exponential.c</in>
+        <in>autoscan_periodic.c</in>
+        <in>bgscan.c</in>
+        <in>bgscan.h</in>
+        <in>bgscan_learn.c</in>
+        <in>bgscan_simple.c</in>
+        <in>blacklist.c</in>
+        <in>blacklist.h</in>
+        <in>bss.c</in>
+        <in>bss.h</in>
+        <in>config.c</in>
+        <in>config.h</in>
+        <in>config_file.c</in>
+        <in>config_none.c</in>
+        <in>config_ssid.h</in>
+        <in>config_winreg.c</in>
+        <in>ctrl_iface.c</in>
+        <in>ctrl_iface.h</in>
+        <in>ctrl_iface_named_pipe.c</in>
+        <in>ctrl_iface_udp.c</in>
+        <in>ctrl_iface_unix.c</in>
+        <in>driver_i.h</in>
+        <in>eap_register.c</in>
+        <in>eapol_test.c</in>
+        <in>events.c</in>
+        <in>gas_query.c</in>
+        <in>gas_query.h</in>
+        <in>hs20_supplicant.c</in>
+        <in>hs20_supplicant.h</in>
+        <in>ibss_rsn.c</in>
+        <in>ibss_rsn.h</in>
+        <in>interworking.c</in>
+        <in>interworking.h</in>
+        <in>main.c</in>
+        <in>main_none.c</in>
+        <in>main_winmain.c</in>
+        <in>main_winsvc.c</in>
+        <in>nfc_pw_token.c</in>
+        <in>notify.c</in>
+        <in>notify.h</in>
+        <in>offchannel.c</in>
+        <in>offchannel.h</in>
+        <in>p2p_supplicant.c</in>
+        <in>p2p_supplicant.h</in>
+        <in>preauth_test.c</in>
+        <in>scan.c</in>
+        <in>scan.h</in>
+        <in>sme.c</in>
+        <in>sme.h</in>
+        <in>wifi_display.c</in>
+        <in>wifi_display.h</in>
+        <in>win_if_list.c</in>
+        <in>wnm_sta.c</in>
+        <in>wnm_sta.h</in>
+        <in>wpa_cli.c</in>
+        <in>wpa_passphrase.c</in>
+        <in>wpa_priv.c</in>
+        <in>wpa_supplicant.c</in>
+        <in>wpa_supplicant_i.h</in>
+        <in>wpas_glue.c</in>
+        <in>wpas_glue.h</in>
+        <in>wps_supplicant.c</in>
+        <in>wps_supplicant.h</in>
+      </df>
+      <in>fila_circular.c</in>
+    </df>
+  </logicalFolder>
+  <projectmakefile></projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>gcc -g -O0</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_signals>
+        </gdb_signals>
+        <gdb_options>
+          <DebugOptions>
+            <option name="gdb_init_file" value="/home/hlegadb/.gdbinit"/>
+            <option name="gdb_source_dirs" value="."/>
+            <option name="debug_command"
+                    value="gdb --args /sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x HM -Y 10"/>
+            <option name="debug_dir" value="/sbin"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x 2 -y 0.5</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x 3 -X 5</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x 4 -X 5</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x 5 -X 5 -y 0.5</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x 6 -y 0.5</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x 7 -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x HM -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x EWMA -X 5  -y 0.5 -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x MAX -X 5  -y 0.5 -Y 10</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x MAX -X 5  -y 0.5 -Y 10</runcommand>
+        <rundir>/sbin</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

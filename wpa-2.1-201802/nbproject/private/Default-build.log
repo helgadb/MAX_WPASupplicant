@@ -1,0 +1,65 @@
+/usr/bin/make -C ../src clean
+make[1]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src'
+for d in ap common crypto drivers eapol_auth eapol_supp eap_common eap_peer eap_server l2_packet p2p radius rsn_supp tls utils wps; do [ -d $d ] && /usr/bin/make -C $d clean; done
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/ap'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/ap'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/crypto'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov libcrypto.a
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/crypto'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/drivers'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+rm -f build.wpa_supplicant build.hostapd
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/drivers'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eapol_auth'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eapol_auth'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eapol_supp'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eapol_supp'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eap_common'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eap_common'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eap_peer'
+rm -f *~ *.o *.so *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eap_peer'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eap_server'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/eap_server'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/l2_packet'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/l2_packet'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/p2p'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/p2p'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/radius'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov libradius.a
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/radius'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/rsn_supp'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/rsn_supp'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/tls'
+rm -f *~ *.o *.d libtls.a
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/tls'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov libutils.a
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/utils'
+make[2]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/wps'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+make[2]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/wps'
+rm -f *~
+make[1]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src'
+/usr/bin/make -C dbus clean
+make[1]: Entering directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/dbus'
+rm -f *~ *.o *.d *.gcno *.gcda *.gcov
+rm -f libwpadbus.a
+make[1]: Leaving directory `/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/dbus'
+rm -f core *~ *.o *.d *.gcno *.gcda *.gcov
+rm -f eap_*.so wpa_supplicant wpa_cli wpa_passphrase systemd/wpa_supplicant.service systemd/wpa_supplicant@.service systemd/wpa_supplicant-nl80211@.service systemd/wpa_supplicant-wired@.service dbus/fi.epitest.hostap.WPASupplicant.service dbus/fi.w1.wpa_supplicant1.service wpa_supplicant.exe wpa_cli.exe wpa_passphrase.exe win_if_list.exe eapol_test preauth_test
+rm -f wpa_priv
+rm -f nfc_pw_token
+rm -f lcov.info
+rm -rf lcov-html
