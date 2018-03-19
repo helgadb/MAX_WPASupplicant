@@ -751,7 +751,9 @@ static struct wpa_ssid * wpa_scan_res_match(struct wpa_supplicant *wpa_s,
 		 wpa_bss_get_vendor_ie_beacon(bss, P2P_IE_VENDOR_TYPE)) ?
 		" p2p" : "");
 
-	e = wpa_blacklist_get(wpa_s, bss->bssid);
+	//e = wpa_blacklist_get(wpa_s, bss->bssid);
+        // desabilitando blacklists
+        e=NULL;
 	if (e) {
 		int limit = 1;
 		if (wpa_supplicant_enabled_networks(wpa_s) == 1) {
@@ -1257,7 +1259,7 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
                 return 0;
         }
 
-        wpa_msg(wpa_s, MSG_INFO, "M8 HELGA - FEZ ROAMING PQ A DIF DE SINAL ESTAVA MAIOR Q MIN DIFF %d", min_diff);
+        wpa_msg(wpa_s, MSG_INFO, "M8 HELGA - FEZ ROAMING PQ A DIF DE SINAL ESTAVA MAIOR OU IGUAL A MIN DIFF %d", min_diff);
         return 1;
 #else /* CONFIG_NO_ROAMING */
 	return 0;

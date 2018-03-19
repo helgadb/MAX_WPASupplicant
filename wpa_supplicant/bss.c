@@ -197,10 +197,12 @@ static void wpa_bss_remove(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 		wpa_ssid_txt(bss->ssid, bss->ssid_len), reason);
 	wpas_notify_bss_removed(wpa_s, bss->bssid, bss->id);
 	wpa_bss_anqp_free(bss->anqp);
-        os_free(bss->win->arraySignal);
-        os_free(bss->win->arrayQual);
-        os_free(bss->win->arrayNoise);
-        os_free(bss->win);
+        if(bss->win != NULL) {
+            os_free(bss->win->arraySignal);
+            os_free(bss->win->arrayQual);
+            os_free(bss->win->arrayNoise);
+            os_free(bss->win);
+        }
 	os_free(bss);
 }
 
@@ -264,7 +266,9 @@ static void wpa_bss_copy_res(struct wpa_bss *dst, struct wpa_scan_res *src,
 	dst->noise = src->noise;
 	dst->level = src->level;
 	dst->tsf = src->tsf;
-        enqueue(dst->win, src->level, src->noise, src->qual);
+        if (dst->win != NULL) {
+            enqueue(dst->win, src->level, src->noise, src->qual);
+        }
 	calculate_update_time(fetch_time, src->age, &dst->last_update);
 }
 
@@ -375,8 +379,8 @@ static void wpa_bss_EWMA_MAX_res (struct wpa_supplicant *wpa_s, struct wpa_bss *
     }  
     
     wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_EWMA_MAX_res : id %u BSSID %s " MACSTR
-    " old signal level: %d ; scan signal level: %d ; EWMA old signal level: %d ; EWMA new signal level: %d ; new MAX signal level: %d ; Ws: %d ; Alpha: %f ",
-    dst->id, dst->ssid , MAC2STR(dst->bssid),  dst->level, src->level,dst->win->arraySignal[lidx],(int)round(newlevel),dst->win->arraySignal[maxIdx], wpa_s->global->Ws, alfa);
+    " old signal level: %d ; scan signal level: %d ; EWMA old signal level: %d ; EWMA new signal level: %d ; new MAX signal level: %d ; Ws: %d ; Alpha: %f ; win=[%d,%d,%d,%d,%d]",
+    dst->id, dst->ssid , MAC2STR(dst->bssid),  dst->level, src->level,dst->win->arraySignal[lidx],(int)round(newlevel),dst->win->arraySignal[maxIdx], wpa_s->global->Ws, alfa, dst->win->arraySignal[0], dst->win->arraySignal[1], dst->win->arraySignal[2], dst->win->arraySignal[3], dst->win->arraySignal[4] );
 
 
     dst->flags = src->flags;
@@ -496,8 +500,13 @@ static struct wpa_bss * wpa_bss_add(struct wpa_supplicant *wpa_s,
 		return NULL;
 	bss->id = wpa_s->bss_next_id++;
 	bss->last_update_idx = wpa_s->bss_update_idx;
-        bss->win = q( wpa_s->global->Ws );
-        if (bss->win == NULL) return NULL;
+        if (wpa_s->global->Ws != -1){
+            bss->win = q( wpa_s->global->Ws );
+            if (bss->win == NULL) return NULL;
+        }
+        else {
+            bss->win = NULL;
+        }
 	wpa_bss_copy_res(bss, res, fetch_time);
 	os_memcpy(bss->ssid, ssid, ssid_len);
 	bss->ssid_len = ssid_len;
