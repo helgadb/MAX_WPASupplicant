@@ -6,30 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/rsn_supp/wpa.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/drivers/driver.h</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/dbus/dbus_new_handlers.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant_i.h</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/ctrl_iface.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/scan.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wps_supplicant.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/common/defs.h</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/events.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/config.h</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/bgscan_simple.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/bss.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/drivers/driver_nl80211.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/config.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/hostapd/config_file.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/main.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/bss.h</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/ap/ap_config.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/bgscan_learn.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/Makefile</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/src/drivers/driver_test.c</file>
-            <file>file:/home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/config_file.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

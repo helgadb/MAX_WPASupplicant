@@ -1127,7 +1127,7 @@ static int wpa_supplicant_need_to_roam(struct wpa_supplicant *wpa_s,
 	struct wpa_bss *current_bss = NULL;
 	int min_diff;
         
-        wpa_msg(wpa_s, MSG_INFO, "HELGA - wpa_supplicant_need_to_roam: Algoritmo de Handoff=%d %s; Parametros: Ws=%d Alpha=%f HM=%d", wpa_s->global->alg_handoff,wpa_s->global->str_alg_handoff, wpa_s->global->Ws, wpa_s->global->alpha, wpa_s->global->hm);
+        wpa_msg(wpa_s, MSG_INFO, "HELGA - wpa_supplicant_need_to_roam: Algoritmo de Handoff=%d %s ; Parametros: Ws=%d Alpha=%f HM=%d", wpa_s->global->alg_handoff,wpa_s->global->str_alg_handoff, wpa_s->global->Ws, wpa_s->global->alpha, wpa_s->global->hm);
         wpa_msg(wpa_s, MSG_INFO, "HELGA - Selected BSS: " MACSTR " %s ,  signal level: %d", MAC2STR(selected->bssid), selected->ssid, selected->level);
         
         

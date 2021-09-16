@@ -250,12 +250,12 @@ static void calculate_update_time(const struct os_reltime *fetch_time,
 
 
 static void wpa_bss_copy_res(struct wpa_bss *dst, struct wpa_scan_res *src,
-			     struct os_reltime *fetch_time)
+			     struct os_reltime *fetch_time,struct wpa_supplicant *wpa_s)
 {
     
-        wpa_printf(MSG_INFO, "HELGA wpa_bss_copy_res: id %u BSSID %s " MACSTR
-        " old signal level: %d ; new signal level: %d ",
-        dst->id, dst->ssid, MAC2STR(dst->bssid), dst->level ,src->level);   
+        wpa_msg(wpa_s, MSG_INFO, "HELGA wpa_bss_copy_res : id %u BSSID %s " MACSTR
+        " old signal level: %d ; scan signal level: %d ; new signal level: %d ",
+        dst->id, dst->ssid, MAC2STR(dst->bssid), dst->level, src->level ,src->level);   
         
 	dst->flags = src->flags;
 	os_memcpy(dst->bssid, src->bssid, ETH_ALEN);
@@ -507,7 +507,7 @@ static struct wpa_bss * wpa_bss_add(struct wpa_supplicant *wpa_s,
         else {
             bss->win = NULL;
         }
-	wpa_bss_copy_res(bss, res, fetch_time);
+	wpa_bss_copy_res(bss, res, fetch_time, wpa_s);
 	os_memcpy(bss->ssid, ssid, ssid_len);
 	bss->ssid_len = ssid_len;
 	bss->ie_len = res->ie_len;
@@ -694,7 +694,7 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
         
         switch ( wpa_s->global->alg_handoff ) {
             case 1 : // WPA
-                 wpa_bss_copy_res(bss, res, fetch_time);           
+                 wpa_bss_copy_res(bss, res, fetch_time, wpa_s);           
             break;
             
             case 2 : // EWMA
@@ -718,11 +718,11 @@ wpa_bss_update(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
             break;
             
             case 7 : // HM
-                wpa_bss_copy_res(bss, res, fetch_time);      
+                wpa_bss_copy_res(bss, res, fetch_time, wpa_s);      
             break;
             
             default :
-                wpa_bss_copy_res(bss, res, fetch_time);
+                wpa_bss_copy_res(bss, res, fetch_time, wpa_s);
            
         }
         

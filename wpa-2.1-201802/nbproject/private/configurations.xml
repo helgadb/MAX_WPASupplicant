@@ -800,8 +800,6 @@
         <gdb_interceptlist>
           <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
         </gdb_interceptlist>
-        <gdb_signals>
-        </gdb_signals>
         <gdb_options>
           <DebugOptions>
             <option name="gdb_init_file" value="/home/hlegadb/.gdbinit"/>
@@ -818,18 +816,18 @@
       </nativedebugger>
       <runprofile version="9">
         <runcommandpicklist>
-          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -Y 10</runcommandpicklistitem>
-          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x MAX -X 5  -y 0.5 -Y 10</runcommandpicklistitem>
-          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.5 -Y 10</runcommandpicklistitem>
-          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x EWMA -X 5  -y 0.5 -Y 10</runcommandpicklistitem>
           <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA_EWMA -X 5  -y 0.5 -Y 10</runcommandpicklistitem>
           <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA_EWMA -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
           <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA_MAX -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
           <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x EWMA_MAX -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
           <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x HM -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10; /sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan2 -dd -t -f /tmp/wpa_s_log_wlan2.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10 &amp;&amp; /sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan2 -dd -t -f /tmp/wpa_s_log_wlan2.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
           <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan2 -dd -t -f /tmp/wpa_s_log2.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
+          <runcommandpicklistitem>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan0 -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommand>
+        <runcommand>/sbin/wpa_supplicant -c /home/helgadb/Dropbox/Doutorado/Estudo_orientado/ping-pong/wpa-2.1/wpa_supplicant/wpa_supplicant.conf -i wlan -dd -t -f /tmp/wpa_s_log.txt -P /run/sendsigs.omit.d/wpasupplicant.pid  -O /var/run/wpa_supplicant -x WPA -X 5  -y 0.6 -Y 10</runcommand>
         <rundir>/sbin</rundir>
         <buildfirst>false</buildfirst>
         <terminal-type>0</terminal-type>
