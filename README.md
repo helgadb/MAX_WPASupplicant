@@ -6,7 +6,7 @@ The implemented algorithms are:
 - WPA_EWMA (with alpha parameter)
 - MAX (with Ws parameter or window size)
 - WPA_MAX (with Ws parameter)
-- EWMA_MAX (with alpha and Ws parameters)
+- EWMAX (formerly called EWMA_MAX) (with alpha and Ws parameters)
 - HM (with parameter hm or fixed hysteresis margin)
 
 The handoff algorithm and parameters can be defined in the command line. The parameters are:
